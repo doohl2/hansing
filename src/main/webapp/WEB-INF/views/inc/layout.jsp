@@ -15,6 +15,7 @@
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
         <!-- style -->
         <link href="${ctx}/resources/css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="${ctx}/resources/css/table.css" type="text/css">
         <!-- style -->
         <!-- bootstrap -->
         <link href="${ctx}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">

@@ -10,100 +10,34 @@
 <main role="main-inner-wrapper" class="container">
 <div class="none-padding work-details">
 
-<div class="tab">
+<!-- <div class="tab">
 	<ul class="tab-group">
   <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
   <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
   <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
   	</ul>
   
-</div>
+</div> -->
 
-<div id="London" class="tabcontent">
+<!-- <div id="London" class="tabcontent">
 <input type="text" id="myInput" onkeyup="myFunction()"
-	placeholder="Search for names.." title="Type in a name">
+	placeholder="Search for names.." title="Type in a name"> -->
 
 <table id="myTable">
-	<tr class="header">
-		<th style="width: 11.11111111111111%;">번호</th>
-		<th style="width: 41.66666666666667%;">제목</th>
-		<th style="width: 23.61111111111111%;">작성자</th>
-		<th style="width: 13.8888888888889%;">등록일</th>
-		<th style="width: 9.722222222222223%;">조회</th>
-	</tr>
+	
 	
 	<tr>
-		<td>1</td>
+		<td><strong>1</strong></td>
 		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
 		<td>론코 Futterkiste</td>
 		<td>2018-04-03</td>
 		<td>1187</td>
+		<td> 1 </td>
 	</tr>
 	
 	
 	
 	
-	<tr>
-		<td>1</td>
-		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
-		<td>론코 Futterkiste</td>
-		<td>2018-04-03</td>
-		<td>1187</td>
-	</tr>	<tr>
-		<td>1</td>
-		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
-		<td>론코 Futterkiste</td>
-		<td>2018-04-03</td>
-		<td>1187</td>
-	</tr>	<tr>
-		<td>1</td>
-		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
-		<td>론코 Futterkiste</td>
-		<td>2018-04-03</td>
-		<td>1187</td>
-	</tr>	<tr>
-		<td>1</td>
-		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
-		<td>론코 Futterkiste</td>
-		<td>2018-04-03</td>
-		<td>1187</td>
-	</tr>	<tr>
-		<td>1</td>
-		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
-		<td>론코 Futterkiste</td>
-		<td>2018-04-03</td>
-		<td>1187</td>
-	</tr>	<tr>
-		<td>1</td>
-		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
-		<td>론코 Futterkiste</td>
-		<td>2018-04-03</td>
-		<td>1187</td>
-	</tr>	<tr>
-		<td>1</td>
-		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
-		<td>론코 Futterkiste</td>
-		<td>2018-04-03</td>
-		<td>1187</td>
-	</tr>	<tr>
-		<td>1</td>
-		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
-		<td>론코 Futterkiste</td>
-		<td>2018-04-03</td>
-		<td>1187</td>
-	</tr>	<tr>
-		<td>1</td>
-		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
-		<td>론코 Futterkiste</td>
-		<td>2018-04-03</td>
-		<td>1187</td>
-	</tr>	<tr>
-		<td>1</td>
-		<td>싱가폴에서 아이와 갈수있는 곳들 모아봤어요~</td>
-		<td>론코 Futterkiste</td>
-		<td>2018-04-03</td>
-		<td>1187</td>
-	</tr>	
 	
 	
 	
