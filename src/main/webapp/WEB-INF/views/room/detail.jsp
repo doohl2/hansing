@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
-
-     <main role="main-inner-wrapper" class="container">
+<main role="main-inner-wrapper" class="container padding-top-ninety">
             	<div class="blog-details">
                 	<article class="post-details" id="post-details">
                         <header role="bog-header" class="bog-header text-center">
@@ -14,6 +13,7 @@
                             <img src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive detail-main-img"/>
                         </figure>
                         <div class="enter-content">
+             
                         <p>
 위치는 홀랜드 빌리지에서 보타닉가든 방향으로 꺾어져서 버스로 한 정류장거리에 있구요.
 
@@ -62,6 +62,7 @@
 카톡: xaexal 로 연락주세요.
                         </p>
                         </div>
+                   
                 	</article>
                 	
                 	
@@ -70,31 +71,22 @@
                 	<h3>3 Comments</h3>
                     <ul class="comments-reply">
                     	<li>
-                        	<figure>
-                            	<img src="${ctx}/resources/images/blog-images/image-1.jpg" alt="" class="img-responsive"/>
-                            </figure>
-                            <section>
+                          	<section>
                                 <h4>Anna Greenfield      <a href="#">Reply</a></h4>
                                 <div class="date-pan">January 26, 2016</div>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat eu nibh ultricies semper. Vivamus porta, felis vitae facilisis sodales, felis est iaculis orci, et ornare sem mauris ut turpis. Pellentesque vitae tortor nec tellus hendrerit aliquam. Donec condimentum leo eu ullamcorper scelerisque pellentesque urna rhoncus.
                             </section>
 							<ol class="reply-pan">
                             	<li>
-                                	<figure>
-                                    	<img src="${ctx}/resources/images/blog-images/image-2.jpg" alt="" class="img-responsive"/>
-                                    </figure>
-                                    <section>
+                            <section>
                                         <h4>Johnathan Doe  <a href="#">Reply</a></h4>
                                         <div class="date-pan">January 26, 2016</div>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat eu nibh ultricies semper. Vivamus porta, felis vitae facilisis sodales, felis est iaculis orci, et ornare sem mauris ut turpis. Pellentesque vitae tortor nec tellus hendrerit aliquam. Donec condimentum leo eu ullamcorper scelerisque pellentesque urna rhoncus.
-                                    </section>
+                            </section>
                                 </li>
                             </ol>
                         </li>
                         <li>
-                        	<figure>
-                            	<img src="${ctx}/resources/images/blog-images/image-3.jpg" alt="" class="img-responsive"/>
-                            </figure>
                             <section>
                                 <h4>Anna Greenfield  <a href="#">Reply</a></h4>
                                 <div class="date-pan">January 26, 2016</div>
@@ -125,6 +117,7 @@
                             </form>
                         </div>
                     </div>
-               </div>                 
-                </div>
+               </div>  
+               </div>               
+
         </main>

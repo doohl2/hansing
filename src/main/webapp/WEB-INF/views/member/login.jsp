@@ -12,11 +12,32 @@
 
 <div class="form">
 	<ul class="tab-group">
-		<li class="tab active"><a href="#signup">회원가입</a></li>
-		<li class="tab"><a href="#login">로그인</a></li>
+		<li class="tab"><a href="#signup">회원가입</a></li>
+		<li class="tab active"><a href="#login">로그인</a></li>
 	</ul>
 
 	<div class="tab-content">
+	
+	<div id="login">
+			<h1>로그인</h1>
+			<form action="/" method="post">
+				<div class="field-wrap">
+					<label> 이메일 <span class="req">*</span>
+					</label> <input type="email" required autocomplete="off" />
+				</div>
+				<div class="field-wrap">
+					<label> 비밀번호 <span class="req">*</span>
+					</label> <input type="password" required autocomplete="off" />
+				</div>
+				<p class="forgot">
+					<a href="#">비밀번호 찾기</a>
+				</p>
+				<button class="button button-block" />
+				로그인
+				</button>
+			</form>
+		</div>
+	
 		<div id="signup">
 			<h1>회원가입</h1>
 
@@ -51,25 +72,7 @@
 			
 			
 		</div>
-		<div id="login">
-			<h1>로그인</h1>
-			<form action="/" method="post">
-				<div class="field-wrap">
-					<label> 이메일 <span class="req">*</span>
-					</label> <input type="email" required autocomplete="off" />
-				</div>
-				<div class="field-wrap">
-					<label> 비밀번호 <span class="req">*</span>
-					</label> <input type="password" required autocomplete="off" />
-				</div>
-				<p class="forgot">
-					<a href="#">비밀번호 찾기</a>
-				</p>
-				<button class="button button-block" />
-				로그인
-				</button>
-			</form>
-		</div>
+		
 	</div>
 	<!-- tab-content -->
 </div>

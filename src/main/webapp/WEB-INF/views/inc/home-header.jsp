@@ -27,9 +27,7 @@
 				
 				<li><a href="${ctx}/job/index" title="Job">구인구직</a></li>
 				
-				<li><a href="${ctx}/member/login" title="Login">로그인</a></li> 
-				
-				<li><a href="${ctx}/member/join" title="Join">회원가입</a></li> 
+				<li><a href="${ctx}/member/login" title="SignInUp">로그인/회원가입</a></li> 
 			</ul>
 		</nav>
 		<!-- nav -->

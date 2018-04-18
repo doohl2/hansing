@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- CUSTOM TAGS -->
+<!-- canonical -->
+
+<!-- META -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+
+<!-- TITLE -->
+<title>XE3</title>
+
+<!-- ICON -->
+
+
+<!-- CSS -->
+<!-- <link
+	href="http://localhost/xe1/latest/assets/core/common/css/xe-common.css"
+	type="text/css" rel="stylesheet" media="all">
+<link
+	href="http://localhost/xe1/latest/assets/core/xe-ui-component/xe-ui-component.css"
+	type="text/css" rel="stylesheet" media="all">
+<link
+	href="http://localhost/xe1/latest/plugins/board/assets/css/board.css"
+	type="text/css" rel="stylesheet" media="all">
+<link
+	href="http://localhost/xe1/latest/plugins\alice/theme/assets/css/owl.carousel.min.css"
+	type="text/css" rel="stylesheet" media="all">
+<link
+	href="http://localhost/xe1/latest/plugins\alice/theme/assets/css/layout.css"
+	type="text/css" rel="stylesheet" media="all">
+<link href="https://cdn.jsdelivr.net/npm/xeicon@2.3/xeicon.min.css"
+	type="text/css" rel="stylesheet" media="all"> -->
+
+<style>
+/* .sub-container {
+	position: relative;
+}
+
+@media ( max-width : 1199px) {
+	.sub-container .sub-content {
+		width: 100%;
+	}
+}
+
+.sub-container .sub-content { 
+	padding: 60px 15px 80px;
+
+}
+
+.board_list th>span {
+    display: block;
+    padding: 0 15px;
+    height: 20px;
+    font-weight: normal;
+}
+
+.board_list th {
+    border: 0;
+    border-bottom: 1px solid #f4f4f4;
+    padding: 24px 0 25px;
+    white-space: nowrap;
+    font-size: 15px;
+    text-align: center;
+}
+
+@media ( min-width : 768px) {
+	.xe-col-sm-9 {
+		width: 75% !important;
+		float: left !important;
+		position: relative !important; 
+		min-height: 1px !important;
+	}
+}
+
+.sub-container .sub-content:after {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	content: "";
+	background-color: #fff;
+	z-index: -1;
+}
+
+.board_list table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 0;
+	border-top: 1px solid #f4f4f4;
+	color: #2c2e37;
+}
+
+@media ( max-width : 767px) {
+	.xe-hidden-xs {
+		display: none !important;
+	}
+	.xe-visible-xs {
+    display: block !important;
+}	
+	.board_list td.title {
+		padding-left: 0 !important;
+		font-size: 15px !important;
+	}
+	.board_list, td.author {
+		width: auto !important;
+	}
+	.xe-hidden-xs {
+		display: none !important;
+	}
+	.board_list td {
+    padding: 12px 12px 11px !important;
+    border-bottom: 1px solid #f4f4f4 !important;
+}
+}
+
+.board_list td.title {
+	width: 100%;
+	white-space: normal;
+	text-align: left;
+	word-break: break-all;
+}
+
+.board_list td {
+	border: 0;
+	padding: 20px 10px 21px;
+	white-space: nowrap;
+	vertical-align: top;
+	text-align: center;
+	font-size: 14px;
+}
+
+.board_list td.title .title_text {
+	margin-right: 5px;
+}
+
+.board_list a {
+	text-decoration: none;
+	color: #2c2e37;
+}
+
+.board_list .reply_num {
+	margin-right: 2px;
+	font-size: 13px;
+	color: #399cf7;
+}
+
+.board_list .bd_ico_new {
+	margin-right: 2px;
+}
+
+.board_list .bd_ico_new i {
+	font-size: 17px;
+}
+
+.board_list .bd_ico_new i {
+	vertical-align: top;
+	padding-top: 2px;
+	font-size: 15px;
+	color: #399cf7;
+}
+
+[class^=xi-] {
+	font-family: xeicon !important;
+	display: inline-block;
+	speak: none;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.xe-sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+.xe-visible-xs {
+	display: none;
+} */
+
+</style>
+
+</head>
+
+<body>
+
+	<div class="sub-container">
+		<div>
+			<!-- snb -->
+			<div class="xe-col-sm-9 sub-content">
+
+				<div class="board_list">
+					<table>
+						<!-- [D] 모바일뷰에서 숨겨할 요소 클래스 xe-hidden-xs 추가 -->
+						<thead class="xe-hidden-xs">
+							<!-- LIST HEADER -->
+							<tr>
+								<th scope="col" class="title column-th-title"><span>제목</span></th>
+								<th scope="col" class="column-th-writer"><span>작성자</span></th>
+								<th scope="col" class="column-th-assent_count"><span>추천수</span></th>
+								<th scope="col" class="column-th-read_count"><span>조회수</span></th>
+								<th scope="col" class="column-th-created_at"><span>작성</span></th>
+							</tr>
+							<!-- /LIST HEADER -->
+						</thead>
+						<tbody>
+							<!-- NOTICE -->
+							<!-- /NOTICE -->
+
+
+							<!-- LIST -->
+							<tr>
+
+
+
+								<td class="title column-title"><a href="#"
+									class="title_text">게시글1</a> <a href="#"
+									class="reply_num xe-hidden-xs" title="Replies">2</a> <span
+									class="bd_ico_new"><i class="xi-new"></i><span
+										class="xe-sr-only">new</span></span>
+									<div class="more_info xe-visible-xs">
+										<a href="#" class="mb_author">admin</a> <span class="mb_time"
+											title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
+											data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
+											class="mb_readnum"><i class="xi-eye"></i> 1</span> <a
+											href="#" class="mb_reply_num"><i class="xi-comment"></i>
+											2</a>
+									</div></td>
+								<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
+								<td class="xe-hidden-xs column-assent_count">0</td>
+								<td class="read_num xe-hidden-xs">1</td>
+								<td class="time xe-hidden-xs column-created_at">8분 전</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

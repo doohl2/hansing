@@ -5,19 +5,49 @@
 
 <main role="main-inner-wrapper" class="container">
 <div class="row">
-	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 portfolio-item ">
-		<article role="pge-title-content" class="blog-header"> <header>
+
+<div class="tool-box-frame tool-box-frame-resp">
+	<div style="width:100px;">	
+	</div>
+	
+	<div class="tool-inbox-right">
+		<button class="background-border-none" onclick="myFunction()">
+		<img class="tool-box-img-size" src="../resources/images/ic_search_black_48px.svg">
+		</button>
+		<img class="tool-box-img-size" src="../resources/images/ic_create_black_48px.svg">
+	</div>
+</div>
+
+<div id="search-toggle" class="tool-box-frame-resp" style="display:none;">
+<div id="search-toggle" class="navbar-form toogle-form-frame" role="search">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search">
+  </div>
+  <button type="submit" class="btn btn-default">검색</button>
+  <button class="btn btn-default" onclick="myFunction2()">상세검색</button>
+</div>	
+</div>
+
+<div id="search-toggle2" class="search-detail-frame f6-background" style="display:none; margin: 0px 15px;">
+<div class="navbar-form navbar-left toogle-form-frame" role="search">
+</div>
+</div>
+
+	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 portfolio-item " style="margin-top:-15px;">
+		<div role="pge-title-content"> <header>
 		<h2>
-			<span>News</span> Updates from studio
+			<span></span> 
 		</h2>
 		</header>
-		<p>Get all information about our studio from latest news posts &
-			updates page.</p>
-		</article>
+		<p>
+		</p>
+		</div>
+	
+	
 		
 		<ul class="grid-lod effect-2" id="grid">
 			<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
+					href="detail"> <figure> <img
 						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
 					</figure>
 				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
@@ -48,13 +78,21 @@
 				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
 		</ul>
 	</div>
-	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	
+	
+	
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 portfolio-item" style="margin-top:-15px;">
+		<div role="pge-title-content"> <header>
+		<h2>
+			<span></span> 
+		</h2>
+		</header>
+		<p>
+
+		</p>
+		</div>
+		
 		<ul class="grid-lod effect-2" id="grid">
-			<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
 			<li><section class="blog-content"> <a
 					href="blog-details.html"> <figure> <img
 						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
@@ -90,3 +128,26 @@
 </div>
 </main>
 <!-- main -->
+
+<script>
+function myFunction() {
+    var x = document.getElementById("search-toggle");
+    var y = document.getElementById("search-toggle2");
+
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+        y.style.display = "none";
+    }
+}
+
+function myFunction2() {
+    var y = document.getElementById("search-toggle2");
+    if (y.style.display === "none") {
+        y.style.display = "block";
+    } else {
+        y.style.display = "none";
+    }
+}
+</script>
