@@ -11,7 +11,7 @@
         <!-- Description, Keywords and Author -->
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>:: avana LLC ::</title>
+        <title>:: Hansing ::</title>
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
         <!-- style -->
         <link href="${ctx}/resources/css/style.css" rel="stylesheet" type="text/css">

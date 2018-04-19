@@ -21,37 +21,31 @@
 <div id="search-toggle" style="display: none;">
 	<div id="search-toggle" class="navbar-form toogle-form-frame"
 		role="search"
-		style="background: #eee !important; height: 70px !important;">
+		>
 		<div class="form-group" style="width: 100%;">
 			<form>
-				<input type="text" placeholder="검색어를 입력하세요"
-					style="width: 100%; height: 60px; border: 0; line-height: 60px; font-size: 24px; background-color: transparent; outline: none;" />
+				<input class="community-input" type="text" placeholder="검색어를 입력하세요"/>
 			</form>
 		</div>
 		<button class="btn btn-default" onclick="myFunction2()">
-			<span id="function2" style="padding-right: 15px; color: #a0a0a0;">상세검색</span>
+			<span id="function2" class="community-search-detail" >상세검색</span>
 		</button>
 	</div>
 </div>
 
-<div id="search-toggle2" class="search-detail-frame"
-	style="display: none; flex-direction: column; heihgt:330px !important;">
-	<div class="navbar-form navbar-left toogle-form-frame" role="search"
-		style="padding: 20px 10px; height: 250px; border-top: 1px solid #dbdadf;"></div>
+<div id="search-toggle2" class="search-detail-frame">
+	<div class="navbar-form navbar-left toogle-form-frame" role="search"></div>
 
-	<div style="display: flex;
-    height: 72px;
-    justify-content: flex-end;
-    padding: 20px 20px;
-    border-top: 1px solid #dbdadf;">
-		<button class="btn btn-default"
-			style="border-color: #399cf7; background-color: #399cf7; color: #fff;">
+	<div class="community-search-button-frame"">
+		<form>
+		<button class="btn btn-default community-search-button">
 			검색</button>
+			</form>
 	</div>
-
-
-
 </div>
+
+
+
 
 <div class="sub-container none-padding">
 	<div>

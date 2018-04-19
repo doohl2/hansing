@@ -19,4 +19,9 @@ public class CommunityController {
 		return "community.detail";
 	}
 	
+	@RequestMapping("write")
+	public String write() {
+
+		return "community.write";
+	}
 }

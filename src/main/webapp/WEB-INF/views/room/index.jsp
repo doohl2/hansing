@@ -18,19 +18,30 @@
 	</div>
 </div>
 
-<div id="search-toggle" class="tool-box-frame-resp" style="display:none;">
-<div id="search-toggle" class="navbar-form toogle-form-frame" role="search">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search">
-  </div>
-  <button type="submit" class="btn btn-default">검색</button>
-  <button class="btn btn-default" onclick="myFunction2()">상세검색</button>
-</div>	
+<div id="search-toggle" style="display: none;">
+	<div id="search-toggle" class="navbar-form toogle-form-frame"
+		role="search"
+		>
+		<div class="form-group" style="width: 100%;">
+			<form>
+				<input class="community-input" type="text" placeholder="검색어를 입력하세요"/>
+			</form>
+		</div>
+		<button class="btn btn-default" onclick="myFunction2()">
+			<span id="function2" class="community-search-detail" >상세검색</span>
+		</button>
+	</div>
 </div>
 
-<div id="search-toggle2" class="search-detail-frame f6-background" style="display:none; margin: 0px 15px;">
-<div class="navbar-form navbar-left toogle-form-frame" role="search">
-</div>
+<div id="search-toggle2" class="search-detail-frame">
+	<div class="navbar-form navbar-left toogle-form-frame" role="search"></div>
+
+	<div class="community-search-button-frame"">
+		<form>
+		<button class="btn btn-default community-search-button">
+			검색</button>
+			</form>
+	</div>
 </div>
 
 	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 portfolio-item " style="margin-top:-15px;">
