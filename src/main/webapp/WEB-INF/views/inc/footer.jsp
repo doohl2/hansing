@@ -25,6 +25,6 @@
 		<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 		<li><a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
 	</ul>
-	<p class="copy-right">&copy; 2015 avana LLC.. All rights Resved</p>
+	<p class="copy-right">&copy; 2018 hansing.. All Right Reserved.</p>
 </footer>
 <!-- footer -->

@@ -45,7 +45,7 @@
 
 				<div class="top-row">
 					<div class="field-wrap">
-						<label> 이름 <span class="req">*</span>
+						<label> 이름<span class="req">*</span>
 						</label> <input type="text" required autocomplete="off" />
 					</div>
 

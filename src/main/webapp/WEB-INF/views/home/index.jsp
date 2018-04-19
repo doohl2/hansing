@@ -11,9 +11,8 @@
 		<article role="pge-title-content">
 			<header>
 				<h2>
-					<span>HanKook</span>
-					<span> Singapore</span>
-					 Online Community Service
+					<span>HanKook</span> <span> Singapore</span> Online Community
+					Service
 				</h2>
 			</header>
 			<p>한싱에서는 한인학생을 비롯해 교민들을 위한 다양한 서비스를 제공합니다.</p>
@@ -21,14 +20,15 @@
 	</section>
 	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
 		<figure class="effect-oscar">
-			<img class="main-img-size" src="${ctx}/resources/images/home-images/rm.png" alt=""
+			<img class="main-img-size"
+				src="${ctx}/resources/images/home-images/rm.png" alt=""
 				class="img-responsive" />
 			<figcaption>
 				<h2>
 					Raffles<span> Hospital</span>
 				</h2>
 				<p>Personal Brand Identity.</p>
-				<a href="works-details.html">View more</a>
+				<a href="store/detail">View more</a>
 			</figcaption>
 		</figure>
 	</section>
@@ -37,7 +37,8 @@
 		<ul class="grid-lod effect-2" id="grid">
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
@@ -50,7 +51,8 @@
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/bukchang.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/bukchang.jpg" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
@@ -63,11 +65,12 @@
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/image-2.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							Studio Thonik <span>Exhibition</span>
+							일도 <span>태권도</span>
 						</h2>
 						<p>Project for Thonik, design studio based in Amsterdam</p>
 						<a href="works-details.html">View more</a>
@@ -76,24 +79,26 @@
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/image-4.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/rm.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							A Brand <span>new Agency</span>
+							Raffles<span> Hospital</span>
 						</h2>
-						<p>Over 40,000 customers use our themes to power their</p>
+						<p>Personal Brand Identity.</p>
 						<a href="works-details.html">View more</a>
 					</figcaption>
 				</figure>
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/image-2.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							Studio Thonik <span>Exhibition</span>
+							일도 <span>태권도</span>
 						</h2>
 						<p>Project for Thonik, design studio based in Amsterdam</p>
 						<a href="works-details.html">View more</a>
@@ -102,24 +107,26 @@
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="images/home-images/image-4.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/rm.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							A Brand <span>new Agency</span>
+							Raffles<span> Hospital</span>
 						</h2>
-						<p>Over 40,000 customers use our themes to power their</p>
+						<p>Personal Brand Identity.</p>
 						<a href="works-details.html">View more</a>
 					</figcaption>
 				</figure>
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="images/home-images/image-2.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							Studio Thonik <span>Exhibition</span>
+							일도 <span>태권도</span>
 						</h2>
 						<p>Project for Thonik, design studio based in Amsterdam</p>
 						<a href="works-details.html">View more</a>
@@ -128,13 +135,14 @@
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/image-4.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/rm.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							A Brand <span>new Agency</span>
+							Raffles<span> Hospital</span>
 						</h2>
-						<p>Over 40,000 customers use our themes to power their</p>
+						<p>Personal Brand Identity.</p>
 						<a href="works-details.html">View more</a>
 					</figcaption>
 				</figure>
@@ -144,8 +152,9 @@
 	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
 		<ul class="grid-lod effect-2" id="grid">
 			<li>
-						<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/bukchang.jpg" alt=""
+				<figure class="effect-oscar">
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/bukchang.jpg" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
@@ -158,7 +167,8 @@
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
@@ -171,65 +181,70 @@
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="images/home-images/image-3.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/rm.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							Anatome Milano <span>Galleria</span>
+							Raffles<span> Hospital</span>
 						</h2>
-						<p>Galerie Anatome based in Paris</p>
+						<p>Personal Brand Identity.</p>
 						<a href="works-details.html">View more</a>
 					</figcaption>
 				</figure>
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/image-5.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							A Brand <span>new Agency</span>
+							일도 <span>태권도</span>
 						</h2>
-						<p>Over 40,000 customers use our themes to power their</p>
+						<p>Project for Thonik, design studio based in Amsterdam</p>
 						<a href="works-details.html">View more</a>
 					</figcaption>
 				</figure>
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/image-3.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/rm.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							Anatome Milano <span>Galleria</span>
+							Raffles<span> Hospital</span>
 						</h2>
-						<p>Galerie Anatome based in Paris</p>
+						<p>Personal Brand Identity.</p>
 						<a href="works-details.html">View more</a>
 					</figcaption>
 				</figure>
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/image-5.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							A Brand <span>new Agency</span>
+							일도 <span>태권도</span>
 						</h2>
-						<p>Over 40,000 customers use our themes to power their</p>
+						<p>Project for Thonik, design studio based in Amsterdam</p>
 						<a href="works-details.html">View more</a>
 					</figcaption>
 				</figure>
 			</li>
 			<li>
 				<figure class="effect-oscar">
-					<img class="main-img-size" src="${ctx}/resources/images/home-images/image-3.jpg" alt=""
+					<img class="main-img-size"
+						src="${ctx}/resources/images/home-images/rm.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
-							Anatome Milano <span>Galleria</span>
+							Raffles<span> Hospital</span>
 						</h2>
-						<p>Galerie Anatome based in Paris</p>
+						<p>Personal Brand Identity.</p>
 						<a href="works-details.html">View more</a>
 					</figcaption>
 				</figure>

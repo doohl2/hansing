@@ -142,23 +142,30 @@
 
 <script>
 function myFunction() {
-    var x = document.getElementById("search-toggle");
-    var y = document.getElementById("search-toggle2");
-
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-        y.style.display = "none";
-    }
+	var x = document.getElementById("search-toggle");
+	var y = document.getElementById("search-toggle2");
+	var function2 = document.getElementById("function2");
+	var searchImg = document.getElementById("search-img");
+	if (x.style.display === "none") {
+		x.style.display = "block";
+		searchImg.src = "../resources/images/search.svg"
+	} else {
+		x.style.display = "none";
+		y.style.display = "none";
+		function2.style.color = "#a0a0a0";
+		searchImg.src = "../resources/images/ic_search_black_48px.svg"
+	}
 }
 
 function myFunction2() {
-    var y = document.getElementById("search-toggle2");
-    if (y.style.display === "none") {
-        y.style.display = "block";
-    } else {
-        y.style.display = "none";
-    }
+	var y = document.getElementById("search-toggle2");
+	var function2 = document.getElementById("function2");
+	if (y.style.display === "none") {
+		y.style.display = "flex";
+		function2.style.color = "#399cf7";
+	} else {
+		y.style.display = "none";
+		function2.style.color = "#a0a0a0";
+	}
 }
 </script>

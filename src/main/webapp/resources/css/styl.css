@@ -8,6 +8,14 @@
 	box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
 
+.form-reset {
+	background: transparent;
+	padding: auto;
+	max-width: 100%;
+	margin: auto;
+	box-shadow: none;
+}
+
 .tab-group {
 	list-style: none;
 	padding: 0;
@@ -57,6 +65,7 @@ label {
 	-webkit-transform: translateY(6px);
 	transform: translateY(6px);
 	left: 13px;
+	font-weight:600;
 	color: #353535;
 	-webkit-transition: all 0.25s ease;
 	transition: all 0.25s ease;

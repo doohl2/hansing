@@ -1085,6 +1085,19 @@ article[role="pge-title-content"].contact-header p a:hover {
 }
 
 .main-img-size{
-	width:555px;
-	height:507.203px;
+	width:555px !important;
+	height:507.203px !important;
+}
+
+.search-toggle-css{
+	background: #eee !important;
+    height: 60px !important;
+    margin-left: 1px;
+    margin-bottom:20px;
+}
+
+.write-form-label{
+	color:dimgrey;
+	font-weight:540;
+	top:7px;b
 }
