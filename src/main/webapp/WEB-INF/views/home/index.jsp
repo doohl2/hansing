@@ -5,7 +5,7 @@
 <!-- --------------------------------------------------------------------------------------------- -->
 <!-- main -->
 
-<main role="main-home-wrapper" class="container">
+<main role="main-home-wrapper" class="container padding-top-ninety">
 <div class="row">
 	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
 		<article role="pge-title-content">
@@ -18,7 +18,9 @@
 			<p>한싱에서는 한인학생을 비롯해 교민들을 위한 다양한 서비스를 제공합니다.</p>
 		</article>
 	</section>
-	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+	
+	
+		<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
 		<figure class="effect-oscar">
 			<img class="main-img-size"
 				src="${ctx}/resources/images/home-images/rm.png" alt=""
@@ -32,6 +34,8 @@
 			</figcaption>
 		</figure>
 	</section>
+	
+
 	<div class="clearfix"></div>
 	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
 		<ul class="grid-lod effect-2" id="grid">

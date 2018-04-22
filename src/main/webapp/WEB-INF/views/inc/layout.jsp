@@ -35,6 +35,7 @@
 
 	<!-- --------------------------- main --------------------------------------- -->
 	<tiles:insertAttribute name="main" />
+	<div style="width:100%;height: 1px;display: flex;"></div>
 
 	<!-- ------------------- <footer> --------------------------------------- -->
 	<tiles:insertAttribute name="footer" />

@@ -13,8 +13,9 @@
 			<img id="search-img" class="tool-box-img-size"
 				src="../resources/images/ic_search_black_48px.svg">
 		</button>
+		<a href="write">
 		<img class="tool-box-img-size"
-			src="../resources/images/ic_create_black_48px.svg">
+			src="../resources/images/ic_create_black_48px.svg"></a>
 	</div>
 </div>
 

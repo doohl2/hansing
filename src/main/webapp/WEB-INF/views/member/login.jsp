@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="${ctx}/resources/css/styl.css">
 
-<main role="main-inner-wrapper" class="container">
+<main role="main-inner-wrapper" class="container padding-top-ninety">
 <div class="work-details">
 
 <div class="form">

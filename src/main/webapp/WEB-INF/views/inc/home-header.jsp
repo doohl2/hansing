@@ -14,7 +14,7 @@
 		<!-- logo -->
 		<!-- nav -->
 		<nav role="header-nav" class="navy">
-			<ul>
+			<ul style="z-index:1000;">
 				<li class="nav-active"><a href="${ctx}/index" title="Home">홈</a></li>
 
 				<li><a href="${ctx}/room/index" title="Room">방</a></li>	

@@ -3,26 +3,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
 
-<style>
-.detail-frame {
-	/* 	background:red; */
-	
-}
-
-.detail-title-frame {
-	/* 	background:blue; */
-	width: 100%;
-	height: 100px;
-	border-top: 2px solid #dedede;
-	border-bottom: 2px solid #dedede;
-}
-
-.detail-content-frame {
-	/* 	background:green; */
-	width: 100%;
-	height: 500px;
-}
-</style>
 
 <main role="main-inner-wrapper" class="container padding-top-ninety">
 <div class="sub-container none-padding">

@@ -164,7 +164,9 @@ textarea {
 
 .button-block {
 	display: block;
-	width: 100%;
+/* 	width: 100%; */
+	    margin-left: 15px;
+    margin-top: -10px;
 }
 
 .forgot {
