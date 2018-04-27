@@ -14,7 +14,7 @@ html {
 }
 
 input, textarea {
-	-webkit-appearance: none;
+/* 	-webkit-appearance: none; */
 	-webkit-border-radius: 0;
 }
 
@@ -1116,4 +1116,30 @@ article[role="pge-title-content"].contact-header p a:hover {
 
 .note-editor.note-frame{
 	margin-bottom:45px;
+}
+
+.button-block-over{
+	margin-left:0 !important;
+	width:100% !important;
+}
+
+.write-select-size{
+    font-size: 25px;
+    padding: 0px 10px;
+    border: none;
+    background: #efefef
+}
+
+.note-toolbar-wrapper{
+	z-index:0;
+}
+
+.write-page-title{
+	color: black;
+    font-size: 41px;
+    padding-left: 40px;
+}
+
+.write-label-content.active{
+	top:250px;
 }

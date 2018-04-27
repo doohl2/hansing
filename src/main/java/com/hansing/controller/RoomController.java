@@ -24,4 +24,9 @@ public class RoomController {
 		return "room.detail";
 	}
 	
+	@RequestMapping("write")
+	public String write() {
+
+		return "room.write";
+	}
 }
