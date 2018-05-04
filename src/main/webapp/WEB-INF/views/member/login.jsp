@@ -20,57 +20,59 @@
 	
 	<div id="login">
 			<h1>로그인</h1>
-			<form action="/" method="post">
+			
+			<form method="post">
 				<div class="field-wrap">
 					<label> 이메일 <span class="req">*</span>
-					</label> <input type="email" required autocomplete="off" />
+					</label> <input type="email" name="username" required autocomplete="off" />
 				</div>
 				<div class="field-wrap">
 					<label> 비밀번호 <span class="req">*</span>
-					</label> <input type="password" required autocomplete="off" />
+					</label> <input type="password" name="password" required autocomplete="off" />
 				</div>
 				<p class="forgot">
 					<a href="#">비밀번호 찾기</a>
 				</p>
-				<button class="button button-block button-block-over" />
+<!-- 				<input type="submit" value="login"/> -->
+				<button type="submit" class="button button-block button-block-over" />
 				로그인
 				</button>
 			</form>
+			
 		</div>
 	
 		<div id="signup">
 			<h1>회원가입</h1>
 
-			<form action="/" method="post">
-
+			<form method="post" action="join">
 				<div class="top-row">
 					<div class="field-wrap">
 						<label> 이름<span class="req">*</span>
-						</label> <input type="text" required autocomplete="off" />
+						</label> <input type="text" name="name" required autocomplete="off" />
 					</div>
 
 					<div class="field-wrap">
 						<label> 닉네임 <span class="req">*</span>
-						</label> <input type="text" required autocomplete="off" />
+						</label> <input type="text" name="nickname" required autocomplete="off" />
 					</div>
 				</div>
 
 				<div class="field-wrap">
 					<label> 이메일 <span class="req">*</span>
-					</label> <input type="email" required autocomplete="off" />
+					</label> <input type="email" name="id" required autocomplete="off" />
 				</div>
 				
 				<div class="field-wrap">
 					<label> 비밀번호<span class="req">*</span>
-					</label> <input type="password" required autocomplete="off" />
+					</label> <input type="password" name="pwd" required autocomplete="off" />
 				</div>
 				
 				<button type="submit" class="button button-block button-block-over" />
 				회원가입
 				</button>
+				
 			</form>
-			
-			
+						
 		</div>
 		
 	</div>
@@ -83,3 +85,8 @@
 
 <script	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="${ctx}/resources/js/index.js"></script>
+<!-- <script>
+$(function(){
+	$(#login)
+});
+</script> -->

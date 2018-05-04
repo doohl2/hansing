@@ -2,26 +2,27 @@ package com.hansing.config;
 
 import javax.servlet.Filter;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class HansingDispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 
+	//서비스 총 집합
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		return new Class[] {
+				HibernateConfig.class,
 				HansingSecurityContextConfig.class
 		};
 	}
 
+	//서블릿 총 집합
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		// TODO Auto-generated method stub
 		return new Class[] {
 				HansingServletContextConfig.class,
 				HansingMvcConfig.class,
-				HibernateConfig.class,
 				TilesConfig.class,
 				MultipartConfig.class
 		};

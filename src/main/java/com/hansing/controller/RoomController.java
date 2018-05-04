@@ -1,30 +1,40 @@
 package com.hansing.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.hansing.controller.service.RoomService;
+import com.hansing.entity.Room;
+import com.hansing.service.RoomService;
+
 
 @Controller
 @RequestMapping("/room/")
 public class RoomController {
-
-	@RequestMapping("index")
-	public String index() {
-		
+	
+	@Autowired
+	private RoomService service;
+	
+	@GetMapping("index")
+	public String index(@RequestParam(value = "p", defaultValue = "1") Integer page, Model model) {
+		List<Room> rooms = service.getList(page);
+		model.addAttribute("rooms",rooms);
 		return "room.index";
 	}
 	
-	@RequestMapping("detail")
+	@GetMapping("detail")
 	public String detail() {
-
+		
 		return "room.detail";
 	}
 	
-	@RequestMapping("write")
+	@GetMapping("write")
 	public String write() {
 
 		return "room.write";

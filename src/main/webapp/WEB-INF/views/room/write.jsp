@@ -4,29 +4,12 @@
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
 <link rel="stylesheet" href="${ctx}/resources/css/styl.css">
 <head>
-<!--===============================================================================================-->
-<%-- 	<link rel="icon" type="image/png" href="${ctx}/resources/images/icons/favicon.ico"/> --%>
-<!--===============================================================================================-->
-<%-- 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/bootstrap/css/bootstrap.min.css"> --%>
-<!--===============================================================================================-->
-<%-- 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css"> --%>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${ctx}/resources/fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
+
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/noui/nouislider.min.css">
-<!--===============================================================================================-->
+<!--==============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/util.css">
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/main.css">
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
 </head>
 <body>
@@ -40,22 +23,22 @@
 				</span>
 
 				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
-					<span class="label-input100">FULL NAME *</span>
+					<span class="label-input100">제목 *</span>
 					<input class="input100" type="text" name="name" placeholder="Enter Your Name">
 				</div>
 
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
-					<span class="label-input100">Email *</span>
+					<span class="label-input100">내용 *</span>
 					<input class="input100" type="text" name="email" placeholder="Enter Your Email ">
 				</div>
 
 				<div class="wrap-input100 bg1 rs1-wrap-input100">
-					<span class="label-input100">Phone</span>
+					<span class="label-input100">연락처 *</span>
 					<input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
 				</div>
 
 				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100">Needed Services *</span>
+					<span class="label-input100">*</span>
 					<div>
 						<select class="js-select2" name="service">
 							<option>Please chooses</option>
@@ -115,10 +98,7 @@
 </main>
 
 
-<!--===============================================================================================-->
-	<script src="${ctx}/resources/css/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="${ctx}/resources/css/vendor/animsition/js/animsition.min.js"></script>
+
 <!--===============================================================================================-->
 	<script src="${ctx}/resources/css/vendor/bootstrap/js/popper.js"></script>
 	<script src="${ctx}/resources/css/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -145,13 +125,7 @@
 			});
 		})
 	</script>
-<!--===============================================================================================-->
-	<script src="${ctx}/resources/css/vendor/daterangepicker/moment.min.js"></script>
-	<script src="${ctx}/resources/css/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="${ctx}/resources/css/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="${ctx}/resources/css/vendor/noui/nouislider.min.js"></script>
+
 	<script>
 	    var filterBar = document.getElementById('filter-bar');
 
@@ -179,7 +153,7 @@
 	<script src="${ctx}/resources/js/main.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

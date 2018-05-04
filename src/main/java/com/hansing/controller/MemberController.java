@@ -1,33 +1,39 @@
 package com.hansing.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.hansing.controller.entity.Member;
+import com.hansing.entity.Member;
+import com.hansing.service.MemberService;
 
 @Controller
 @RequestMapping("/member/")
 public class MemberController {
 
-//	@Autowired
-//	private MemberService service;
+	@Autowired
+	private MemberService service;
 	
-	@RequestMapping(value="login", method=RequestMethod.GET)
+	@GetMapping("login")
 	public String login() {
 		return "member.login";
 	}
 	
-	@RequestMapping(value="join", method=RequestMethod.GET)
+	@GetMapping("join")
 	public String join() {
-		return "member.join";
+		return "member.login";
 	}
 	
-	@RequestMapping(value="join", method=RequestMethod.POST)
+	@PostMapping("join")
 	public String join(Member member) {
-		
-//		int result = service.insertMember(member);
-		
-		return "redirect:../index";
+		String pwd = member.getPwd();
+		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String hashedPwd = passwordEncoder.encode(pwd);
+		member.setPwd(hashedPwd);
+		int result = service.insertMember(member);
+		return "member.login";
 	}
 }
