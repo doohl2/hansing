@@ -1,11 +1,17 @@
 package com.hansing.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 @Entity
 public class Room {
 	@Id
@@ -18,8 +24,6 @@ public class Room {
 	private int price;
 	private String mainImg;
 	private String subImg;
-	private String direction;
-	private String location;
 	private boolean aircon;
 	private boolean pub;
 	private boolean cook;
@@ -27,30 +31,39 @@ public class Room {
 	private String gender;
 	private int minDuration; 
 	
-	private String memberId;
-	private String directionName;
-	private String roomSizeName;
-	private String roomTypeName;
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="memberId")
+	private Member member;
+	
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="directionName")
+	private Direction direction;
+	
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="roomSizeName")
+	private RoomSize roomSize;
+	
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="roomTypeName")
+	private RoomType roomType;
+	
+	@OneToMany(mappedBy="room",	cascade=CascadeType.ALL)
+	private List<RoomDetailImg> roomDetailImgs;
 	
 	public Room() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
-	public Room(int price, String mainImg, String location) {
+	public Room(int price, String mainImg) {
 		super();
 		this.price = price;
 		this.mainImg = mainImg;
-		this.location = location;
 	}
 
-
-
 	public Room(int id, String title, String content, Date regDate, String contactNo, int price, String mainImg,
-			String subImg, String direction, String location, boolean aircon, boolean pub,
-			boolean cook, Date dateOfStart, String gender, int minDuration, String memberId, String directionName,
-			String roomSizeName, String roomTypeName) {
+			String subImg, boolean aircon, boolean pub, boolean cook, Date dateOfStart, String gender,
+			int minDuration, Member member, Direction direction, RoomSize roomSize, RoomType roomType,
+			List<RoomDetailImg> roomDetailImgs) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -60,18 +73,17 @@ public class Room {
 		this.price = price;
 		this.mainImg = mainImg;
 		this.subImg = subImg;
-		this.direction = direction;
-		this.location = location;
 		this.aircon = aircon;
 		this.pub = pub;
 		this.cook = cook;
 		this.dateOfStart = dateOfStart;
 		this.gender = gender;
 		this.minDuration = minDuration;
-		this.memberId = memberId;
-		this.directionName = directionName;
-		this.roomSizeName = roomSizeName;
-		this.roomTypeName = roomTypeName;
+		this.member = member;
+		this.direction = direction;
+		this.roomSize = roomSize;
+		this.roomType = roomType;
+		this.roomDetailImgs = roomDetailImgs;
 	}
 
 	public int getId() {
@@ -138,22 +150,6 @@ public class Room {
 		this.subImg = subImg;
 	}
 
-	public String getDirection() {
-		return direction;
-	}
-
-	public void setDirection(String direction) {
-		this.direction = direction;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
 	public boolean isAircon() {
 		return aircon;
 	}
@@ -202,45 +198,54 @@ public class Room {
 		this.minDuration = minDuration;
 	}
 
-	public String getMemberId() {
-		return memberId;
+	public Member getMember() {
+		return member;
 	}
 
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setMember(Member member) {
+		this.member = member;
 	}
 
-	public String getDirectionName() {
-		return directionName;
+	public Direction getDirection() {
+		return direction;
 	}
 
-	public void setDirectionName(String directionName) {
-		this.directionName = directionName;
+	public void setDirection(Direction direction) {
+		this.direction = direction;
 	}
 
-	public String getRoomSizeName() {
-		return roomSizeName;
+	public RoomSize getRoomSize() {
+		return roomSize;
 	}
 
-	public void setRoomSizeName(String roomSizeName) {
-		this.roomSizeName = roomSizeName;
+	public void setRoomSize(RoomSize roomSize) {
+		this.roomSize = roomSize;
 	}
 
-	public String getRoomTypeName() {
-		return roomTypeName;
+	public RoomType getRoomType() {
+		return roomType;
 	}
 
-	public void setRoomTypeName(String roomTypeName) {
-		this.roomTypeName = roomTypeName;
+	public void setRoomType(RoomType roomType) {
+		this.roomType = roomType;
+	}
+
+	public List<RoomDetailImg> getRoomDetailImgs() {
+		return roomDetailImgs;
+	}
+
+	public void setRoomDetailImgs(List<RoomDetailImg> roomDetailImgs) {
+		this.roomDetailImgs = roomDetailImgs;
 	}
 
 	@Override
 	public String toString() {
 		return "Room [id=" + id + ", title=" + title + ", content=" + content + ", regDate=" + regDate + ", contactNo="
-				+ contactNo + ", price=" + price + ", mainImg=" + mainImg + ", subImg=" + subImg + ", direction=" + direction + ", location=" + location + ", aircon=" + aircon + ", pub="
-				+ pub + ", cook=" + cook + ", dateOfStart=" + dateOfStart + ", gender=" + gender + ", minDuration="
-				+ minDuration + ", memberId=" + memberId + ", directionName=" + directionName + ", roomSizeName="
-				+ roomSizeName + ", roomTypeName=" + roomTypeName + "]";
+				+ contactNo + ", price=" + price + ", mainImg=" + mainImg + ", subImg=" + subImg + ", aircon=" + aircon + ", pub=" + pub + ", cook=" + cook + ", dateOfStart=" + dateOfStart
+				+ ", gender=" + gender + ", minDuration=" + minDuration + ", member=" + member + ", direction="
+				+ direction + ", roomSize=" + roomSize + ", roomType=" + roomType + ", roomDetailImgs=" + roomDetailImgs
+				+ "]";
 	}
+	
 	
 }

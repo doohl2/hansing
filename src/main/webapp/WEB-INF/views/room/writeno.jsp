@@ -3,6 +3,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
 <link rel="stylesheet" href="${ctx}/resources/css/styl.css">
+<style>
+label{pointer-events:auto !important;}
+</style>
 <head>
 <!--===============================================================================================-->
 <%-- 	<link rel="icon" type="image/png" href="${ctx}/resources/images/icons/favicon.ico"/> --%>
@@ -16,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/animate/animate.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
+<!-- =============================================================================================== -->
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/vendor/select2/select2.min.css">
@@ -29,7 +32,7 @@
 	<link rel="stylesheet" type="text/css" href="${ctx}/resources/css/main.css">
 <!--===============================================================================================-->
 </head>
-<body>
+
 
 
 	<div class="container-contact100">
@@ -40,8 +43,18 @@
 				</span>
 
 				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
-					<span class="label-input100">FULL NAME *</span>
+					<span class="label-input100">제목 *</span>
 					<input class="input100" type="text" name="name" placeholder="Enter Your Name">
+				</div>
+				
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
+					<span class="label-input100">보증금 *</span>
+					<input class="input100" type="text" name="email" placeholder="Enter Your Email ">
+				</div>
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">가격</span>
+					<input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
 				</div>
 
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
@@ -50,7 +63,7 @@
 				</div>
 
 				<div class="wrap-input100 bg1 rs1-wrap-input100">
-					<span class="label-input100">Phone</span>
+					<span class="label-input100">연락처</span>
 					<input class="input100" type="text" name="phone" placeholder="Enter Number Phone">
 				</div>
 
@@ -97,7 +110,7 @@
 				</div>
 
 				<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
-					<span class="label-input100">Message</span>
+					<span class="label-input100">내용</span>
 					<textarea class="input100" name="message" placeholder="Your message here..."></textarea>
 				</div>
 
@@ -147,11 +160,11 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="${ctx}/resources/css/vendor/daterangepicker/moment.min.js"></script>
-	<script src="${ctx}/resources/css/vendor/daterangepicker/daterangepicker.js"></script>
+<%-- 	<script src="${ctx}/resources/css/vendor/daterangepicker/daterangepicker.js"></script> --%>
 <!--===============================================================================================-->
-	<script src="${ctx}/resources/css/vendor/countdowntime/countdowntime.js"></script>
+<%-- 	<script src="${ctx}/resources/css/vendor/countdowntime/countdowntime.js"></script> --%>
 <!--===============================================================================================-->
-	<script src="${ctx}/resources/css/vendor/noui/nouislider.min.js"></script>
+<%-- 	<script src="${ctx}/resources/css/vendor/noui/nouislider.min.js"></script> --%>
 	<script>
 	    var filterBar = document.getElementById('filter-bar');
 

@@ -1,23 +1,29 @@
 package com.hansing.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 
 @Entity
 public class MarketImg {
 	@Id
 	private String name;
 	
-	private int marketId;
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="marketId")
+	private Market market;
 
 	public MarketImg() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MarketImg(String name, int marketId) {
+	public MarketImg(String name, Market market) {
 		super();
 		this.name = name;
-		this.marketId = marketId;
+		this.market = market;
 	}
 
 	public String getName() {
@@ -28,17 +34,17 @@ public class MarketImg {
 		this.name = name;
 	}
 
-	public int getMarketId() {
-		return marketId;
+	public Market getMarket() {
+		return market;
 	}
 
-	public void setMarketId(int marketId) {
-		this.marketId = marketId;
+	public void setMarket(Market market) {
+		this.market = market;
 	}
 
 	@Override
 	public String toString() {
-		return "MarketImg [name=" + name + ", marketId=" + marketId + "]";
+		return "MarketImg [name=" + name + ", market=" + market + "]";
 	}
-	
+
 }

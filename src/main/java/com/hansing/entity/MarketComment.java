@@ -2,8 +2,11 @@ package com.hansing.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class MarketComment {
@@ -12,20 +15,25 @@ public class MarketComment {
 	private Date regDate;
 	private String content;
 	
-	private int marketId;
-	private String memberId;
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="marketId")
+	private Market market;
+	
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="memberId")
+	private Member member;
 	
 	public MarketComment() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MarketComment(int id, Date regDate, String content, int marketId, String memberId) {
+	public MarketComment(int id, Date regDate, String content, Market market, Member member) {
 		super();
 		this.id = id;
 		this.regDate = regDate;
 		this.content = content;
-		this.marketId = marketId;
-		this.memberId = memberId;
+		this.market = market;
+		this.member = member;
 	}
 
 	public int getId() {
@@ -52,26 +60,28 @@ public class MarketComment {
 		this.content = content;
 	}
 
-	public int getMarketId() {
-		return marketId;
+
+	public Market getMarket() {
+		return market;
 	}
 
-	public void setMarketId(int marketId) {
-		this.marketId = marketId;
+	public void setMarket(Market market) {
+		this.market = market;
 	}
 
-	public String getMemberId() {
-		return memberId;
+	public Member getMember() {
+		return member;
 	}
 
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setMember(Member member) {
+		this.member = member;
 	}
 
 	@Override
 	public String toString() {
-		return "MarketComment [id=" + id + ", regDate=" + regDate + ", content=" + content + ", marketId=" + marketId
-				+ ", memberId=" + memberId + "]";
+		return "MarketComment [id=" + id + ", regDate=" + regDate + ", content=" + content + ", market=" + market
+				+ ", member=" + member + "]";
 	}
+
 	
 }

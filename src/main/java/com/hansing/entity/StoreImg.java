@@ -1,23 +1,28 @@
 package com.hansing.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class StoreImg {
 	@Id
 	private String name;
 	
-	private int storeId;
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="storeId")
+	private Store store;
 
 	public StoreImg() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public StoreImg(String name, int storeId) {
+	public StoreImg(String name, Store store) {
 		super();
 		this.name = name;
-		this.storeId = storeId;
+		this.store = store;
 	}
 
 	public String getName() {
@@ -28,17 +33,17 @@ public class StoreImg {
 		this.name = name;
 	}
 
-	public int getStoreId() {
-		return storeId;
+	public Store getStore() {
+		return store;
 	}
 
-	public void setStoreId(int storeId) {
-		this.storeId = storeId;
+	public void setStore(Store store) {
+		this.store = store;
 	}
 
 	@Override
 	public String toString() {
-		return "StoreImg [name=" + name + ", storeId=" + storeId + "]";
+		return "StoreImg [name=" + name + ", store=" + store + "]";
 	}
-	
+
 }

@@ -1,9 +1,15 @@
 package com.hansing.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Job {
@@ -21,15 +27,23 @@ public class Job {
 	private boolean parmanentPosition;
 	private int hit;
 	
-	private String jobTypeName;
-	private String memberId;
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="jobTypeName")
+	private JobType jobType;
+	
+	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@JoinColumn(name="memberId")
+	private Member member;
+	
+	@OneToMany(mappedBy="job",	cascade=CascadeType.ALL)
+	private List<JobAttachment> jobAttachment;
 	
 	public Job() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Job(int id, String name, String email, String contactNo, int career, String educationalBg, String price,
-			String title, boolean parmanentPosition, int hit, String jobTypeName, String memberId) {
+			String title, boolean parmanentPosition, int hit, List<JobAttachment> jobAttachment) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -41,8 +55,7 @@ public class Job {
 		this.title = title;
 		this.parmanentPosition = parmanentPosition;
 		this.hit = hit;
-		this.jobTypeName = jobTypeName;
-		this.memberId = memberId;
+		this.jobAttachment = jobAttachment;
 	}
 
 	public int getId() {
@@ -125,28 +138,19 @@ public class Job {
 		this.hit = hit;
 	}
 
-	public String getJobTypeName() {
-		return jobTypeName;
+	public List<JobAttachment> getJobAttachment() {
+		return jobAttachment;
 	}
 
-	public void setJobTypeName(String jobTypeName) {
-		this.jobTypeName = jobTypeName;
-	}
-
-	public String getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setJobAttachment(List<JobAttachment> jobAttachment) {
+		this.jobAttachment = jobAttachment;
 	}
 
 	@Override
 	public String toString() {
 		return "Job [id=" + id + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo + ", career="
 				+ career + ", educationalBg=" + educationalBg + ", price=" + price + ", title=" + title
-				+ ", parmanentPosition=" + parmanentPosition + ", hit=" + hit + ", jobTypeName=" + jobTypeName
-				+ ", memberId=" + memberId + "]";
+				+ ", parmanentPosition=" + parmanentPosition + ", hit=" + hit + ", jobAttachment=" + jobAttachment + "]";
 	}
-	
+
 }
