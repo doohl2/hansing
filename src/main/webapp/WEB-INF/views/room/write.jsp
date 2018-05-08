@@ -3,11 +3,59 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
 <link rel="stylesheet" href="${ctx}/resources/css/styl.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css" rel="stylesheet">  
+    
+    <!-- bootstrap 4.x is supported. You can also use the bootstrap css 3.3.x versions -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+<!-- if using RTL (Right-To-Left) orientation, load the RTL CSS file after fileinput.css by uncommenting below -->
+<!-- link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/css/fileinput-rtl.min.css" media="all" rel="stylesheet" type="text/css" /-->
+<!-- optionally uncomment line below if using a theme or icon set like font awesome (note that default icons used are glyphicons and `fa` theme can override it) -->
+<!-- link https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css media="all" rel="stylesheet" type="text/css" /-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- piexif.min.js is only needed for restoring exif data in resized images and when you 
+    wish to resize images before upload. This must be loaded before fileinput.min.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/piexif.min.js" type="text/javascript"></script>
+<!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. 
+    This must be loaded before fileinput.min.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/sortable.min.js" type="text/javascript"></script>
+<!-- purify.min.js is only needed if you wish to purify HTML content in your preview for 
+    HTML files. This must be loaded before fileinput.min.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/purify.min.js" type="text/javascript"></script>
+<!-- popper.min.js below is needed if you use bootstrap 4.x. You can also use the bootstrap js 
+   3.3.x versions without popper.min.js. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<!-- bootstrap.min.js below is needed if you wish to zoom and preview file content in a detail modal
+    dialog. bootstrap 4.x is supported. You can also use the bootstrap js 3.3.x versions. -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- the main fileinput plugin file -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/fileinput.min.js"></script>
+<!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
+<!-- script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/themes/fa/theme.min.js"></script -->
+<!-- optionally if you need translation for your language then include  locale file as mentioned below -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/locales/LANG.js"></script>
+
+   <script type="text/javascript">
+       $(function() {
+               $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" }).val()
+       });
+   </script>
+
 <style>
-	label{
-	pointer-events:auto !important;}
+	label{pointer-events:auto !important;}
 </style>
 <style>
+.custom-select{border:none;padding:0;}
+.fileinput-remove-button{display:none;}
+.form-control{padding:18px;}
+.file-caption-main{width:88.5%;}
+.fileinput-upload-button{display:none;}
+.btn-file{
+    padding-right: 100px;
+}
 .reg-container {
     padding: 16px;
     background-color: white;
@@ -36,7 +84,7 @@ hr {
 
 /* Set a style for the submit button */
 .registerbtn {
-    background-color: #4CAF50;
+    background-color: black;
     color: white;
     padding: 16px 20px;
     margin: 8px 0;
@@ -70,13 +118,13 @@ a {
   display: none; /*hide original SELECT element:*/
 }
 .select-selected {
-  background-color: DodgerBlue;
+  background-color: #f1f1f1;
 }
 /*style the arrow inside the select element:*/
 .select-selected:after {
   position: absolute;
   content: "";
-  top: 14px;
+  top: 26px;
   right: 10px;
   width: 0;
   height: 0;
@@ -90,20 +138,23 @@ a {
 }
 /*style the items (options), including the selected item:*/
 .select-items div,.select-selected {
-  color: #ffffff;
-  padding: 8px 16px;
-  border: 1px solid transparent;
+  color:gray;
+  padding:15.5px;
+  border:none;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
   user-select: none;
 }
+
+.width98{
+	width:98% !important;
+}
 /*style items (options):*/
 .select-items {
   position: absolute;
-  background-color: DodgerBlue;
+  background-color: #f1f1f1;
   top: 100%;
-  left: 0;
-  right: 0;
+  left: 0;  right: 0;
   z-index: 99;
 }
 /*hide the items when the select box is closed:*/
@@ -251,9 +302,14 @@ a {
   display: inline-block;
   width: 60px;
   height: 34px;
+  top:-5px;
 }
 
 .switch input {display:none;}
+
+.switch-div-padding{
+    padding: 4.5px !important;
+    }
 
 .slider {
   position: absolute;
@@ -280,7 +336,7 @@ a {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: black;
 }
 
 input:focus + .slider {
@@ -307,16 +363,18 @@ input:checked + .slider:before {
     <hr>
 
     <big><b>주소</b></big>
-    <input type="text" placeholder="주소" name="" required>
-
-	 <big style="float:left"><b>회소기간</b></big>
+    <input type="text" placeholder="주소" name="" required class="width98">
+    
+     <big style="float:left"><b>시작일</b></big>
 	<div style="left: 50%; float: right; width: 50%;">
-    <big><b>연락처</b></big>
-	</div>
+    <big><b>연락처</b></big> 
+	</div>	
     <br>
-    <input type="text" placeholder="회소기간" name="" required style="width: 49% !important;">
-    <input type="text" placeholder="연락처" name="" required style="width: 49%;">
+    
 
+ 
+  <input type="text" id="datepicker" class="from-control" style="width:49%;">
+    <input type="text" placeholder="연락처" name="" required style="width: 49%;">
 
     <big style="float:left"><b>보증금</b></big>
 	<div style="left: 50%; float: right; width: 50%;">
@@ -325,20 +383,71 @@ input:checked + .slider:before {
     <br>
     <input type="text" placeholder="보증금" name="" required style="width: 49% !important;">
     <input type="text" placeholder="월세금" name="" required style="width: 49%;">
-
+    
+    <big style="float:left"><b>방종류</b></big>
+	<div style="left: 50%; float: right; width: 50%;">
+    <big><b>방크기</b></big>
+	</div>	
+    <br>
+    <div style="margin: 5px 0 22px 0;">
+    <div class="custom-select" style="width:49%;">
+  <select>
+    <option value="0">전체</option>
+    <option value="1">동</option>
+    <option value="2">서</option>
+    <option value="3">남</option>
+    <option value="4">북</option>
+  </select>
+  </div>
+  <div class="custom-select" style="width:49%; border-left: 2px solid white;">
+    <select>
+    <option value="0">전체</option>
+    <option value="1">동</option>
+    <option value="2">서</option>
+    <option value="3">남</option>
+    <option value="4">북</option>
+  </select>
+</div>
+</div>
+    
+      <big style="float:left"><b>위치</b></big>
+	<div style="left: 50%; float: right; width: 50%;">
+    <big><b>지역</b></big>
+	</div>	
+    <br>
+    <div style="margin: 5px 0 22px 0;">
+    <div class="custom-select" style="width:49%;">
+  <select>
+    <option value="0">전체</option>
+    <option value="1">동</option>
+    <option value="2">서</option>
+    <option value="3">남</option>
+    <option value="4">북</option>
+  </select>
+  </div>
+  <div class="custom-select" style="width:49%; border-left: 2px solid white;">
+    <select>
+    <option value="0">전체</option>
+    <option value="1">동</option>
+    <option value="2">서</option>
+    <option value="3">남</option>
+    <option value="4">북</option>
+  </select>
+</div>
+</div>
 
     <big style="float:left"><b>에어컨여부</b></big>
 	<div style="left: 50%; float: right; width: 50%;">
     <big><b>PUB포함여부</b></big>
 	</div>
     <br>
-    <div class="input-style-div" style="width: 49% !important; padding-right: 0px;">
+    <div class="input-style-div switch-div-padding" style="width: 49% !important; padding-right: 0px;">
     <label class="switch">
 	  <input type="checkbox">
 	  <span class="slider"></span>
 	</label>
 	</div>
-    <div class="input-style-div" style="width: 49%; padding-left: 0px;">	
+    <div class="input-style-div switch-div-padding" style="width: 49%; padding-left: 0px;">	
 	<label class="switch">
 	  <input type="checkbox">
 	  <span class="slider"></span>
@@ -346,17 +455,17 @@ input:checked + .slider:before {
 	</div>
 	
 	  <big style="float:left"><b>여자만</b></big>
-	<div style="left: 50%; float: right; width: 50%;">
+	<div style="left: 50%; float: right; width: 50%;" >
     <big><b>조리가능여부</b></big>
 	</div>
     <br>
-    <div class="input-style-div" style="width: 49% !important; padding-right: 0px;">
+    <div class="input-style-div switch-div-padding" style="width: 49% !important; padding-right: 0px;">
     <label class="switch">
 	  <input type="checkbox">
 	  <span class="slider"></span>
 	</label>
 	</div>
-    <div class="input-style-div" style="width: 49%; padding-left: 0px;">	
+    <div class="input-style-div switch-div-padding" style="width: 49%; padding-left: 0px;">	
 	<label class="switch">
 	  <input type="checkbox">
 	  <span class="slider"></span>
@@ -365,19 +474,24 @@ input:checked + .slider:before {
 	
 	
     <big><b>제목</b></big>
-    <input type="text" placeholder="제목" name="" required>
+    <input type="text" placeholder="제목" name="" required class="width98" style="margin-right:5px;">
 
     <big><b>내용</b></big>
-    <input type="text" placeholder="" name="" required style="height:10em">
-
-    <big><b>Repeat Password</b></big>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    <input class="width98" type="text" placeholder="" name="" required style="height:10em">
+    
+    <big><b>메인이미지</b></big>
+    <input id="input-b1" name="input-b1" type="file" class="file" >
+    
+     <big><b>상세이미지</b></big>
+<div class="file-loading">
+    <input id="input-b7" name="input-b7[]" multiple type="file" class="file" data-allowed-file-extensions='["jpg", "png","gif]'>
+</div>
     
     <!-- ----------------------------------------------toggle---------------------------------------- -->
-	<label class="switch">
+<!-- 	<label class="switch">
 	  <input type="checkbox">
 	  <span class="slider"></span>
-	</label>
+	</label> -->
 <!-- ----------------------------------------------select box-----------------------------------------------     -->
  <!--    
     <div class="custom-select" style="width:200px;">
@@ -437,7 +551,7 @@ input:checked + .slider:before {
     
     <hr>
 
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn width98" style="padding:21px 20px;">등록</button>
   </div>
 	<div class="padding-top-ninety"> </div>
 </main>
@@ -516,3 +630,19 @@ function closeAllSelect(elmnt) {
 /*if the user clicks anywhere outside the select box,
 then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);</script>
+<script type="text/javascript">
+ 
+    $( "#datepicker" ).datepicker();
+ 
+</script>
+
+<script>
+$(document).on('ready', function() {
+	// initialize with defaults
+	$("#input-b7").fileinput();
+// 	$("#input-b1").fileinput();
+	// with plugin options
+	$("#input-b7").fileinput({'showUpload':false, 'previewFileType':'any'});
+// 	$("#input-b1").fileinput({'showUpload':false, 'previewFileType':'any'});
+});
+</script>

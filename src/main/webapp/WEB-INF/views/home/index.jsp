@@ -42,7 +42,7 @@
 			<li>
 				<figure class="effect-oscar">
 					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
+						src="${ctx}/resources/images/home-images/ildo.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
@@ -56,7 +56,7 @@
 			<li>
 				<figure class="effect-oscar">
 					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/bukchang.jpg" alt=""
+						src="${ctx}/resources/images/home-images/bukchang.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
@@ -70,7 +70,7 @@
 			<li>
 				<figure class="effect-oscar">
 					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
+						src="${ctx}/resources/images/home-images/ildo.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
@@ -84,69 +84,13 @@
 			<li>
 				<figure class="effect-oscar">
 					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/rm.png" alt=""
-						class="img-responsive" />
-					<figcaption>
-						<h2>
-							Raffles<span> Hospital</span>
-						</h2>
-						<p>Personal Brand Identity.</p>
-						<a href="works-details.html">View more</a>
-					</figcaption>
-				</figure>
-			</li>
-			<li>
-				<figure class="effect-oscar">
-					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
+						src="${ctx}/resources/images/home-images/ildo.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
 							일도 <span>태권도</span>
 						</h2>
 						<p>Project for Thonik, design studio based in Amsterdam</p>
-						<a href="works-details.html">View more</a>
-					</figcaption>
-				</figure>
-			</li>
-			<li>
-				<figure class="effect-oscar">
-					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/rm.png" alt=""
-						class="img-responsive" />
-					<figcaption>
-						<h2>
-							Raffles<span> Hospital</span>
-						</h2>
-						<p>Personal Brand Identity.</p>
-						<a href="works-details.html">View more</a>
-					</figcaption>
-				</figure>
-			</li>
-			<li>
-				<figure class="effect-oscar">
-					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
-						class="img-responsive" />
-					<figcaption>
-						<h2>
-							일도 <span>태권도</span>
-						</h2>
-						<p>Project for Thonik, design studio based in Amsterdam</p>
-						<a href="works-details.html">View more</a>
-					</figcaption>
-				</figure>
-			</li>
-			<li>
-				<figure class="effect-oscar">
-					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/rm.png" alt=""
-						class="img-responsive" />
-					<figcaption>
-						<h2>
-							Raffles<span> Hospital</span>
-						</h2>
-						<p>Personal Brand Identity.</p>
 						<a href="works-details.html">View more</a>
 					</figcaption>
 				</figure>
@@ -158,7 +102,7 @@
 			<li>
 				<figure class="effect-oscar">
 					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/bukchang.jpg" alt=""
+						src="${ctx}/resources/images/home-images/bukchang.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
@@ -172,7 +116,7 @@
 			<li>
 				<figure class="effect-oscar">
 					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
+						src="${ctx}/resources/images/home-images/ildo.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
@@ -200,7 +144,7 @@
 			<li>
 				<figure class="effect-oscar">
 					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
+						src="${ctx}/resources/images/home-images/ildo.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>
@@ -228,7 +172,7 @@
 			<li>
 				<figure class="effect-oscar">
 					<img class="main-img-size"
-						src="${ctx}/resources/images/home-images/ildo.jpg" alt=""
+						src="${ctx}/resources/images/home-images/ildo.png" alt=""
 						class="img-responsive" />
 					<figcaption>
 						<h2>

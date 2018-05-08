@@ -1143,3 +1143,7 @@ article[role="pge-title-content"].contact-header p a:hover {
 .write-label-content.active{
 	top:250px;
 }
+
+header > .container > h1 > a {
+	font-weight:bold;
+}
