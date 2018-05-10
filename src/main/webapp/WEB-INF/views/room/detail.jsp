@@ -3,130 +3,226 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
 <main role="main-inner-wrapper" class="container padding-top-ninety">
-            	<div class="blog-details">
-                	<article class="post-details" id="post-details">
-                        <header role="bog-header" class="bog-header text-center">
-                            <h3>2018 04 02</h3>
-                            <h2> 홀랜드로드에 1인실 커먼룸있습니다.</h2>
-                        </header>
-                        <figure class="flex-center">
-                            <img src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive detail-main-img"/>
-                        </figure>
-                        <div class="enter-content">
-             
-                        <p>
-위치는 홀랜드 빌리지에서 보타닉가든 방향으로 꺾어져서 버스로 한 정류장거리에 있구요.
 
-전체적으로 방은 3개인데, 여학생이 혼자 쓰는 방입니다.
+<form name="local_search_form" >
 
-3월17일부터 입주하실 수 있습니다.
+	<input type="hidden" name="s_v4" value="undefined">
+	<input type="hidden" name="s_v5" value="undefined"> 
 
- 
+	 				<span id="local_sel_span1">
+					<select name="keyfield" onchange="user_form_sel(&#39;tmp_s_v4&#39;,this.value)">
+					<option value="">전체</option>
+					<option value="s_v4,동쪽">동쪽</option>
+					<option value="s_v4,서쪽">서쪽</option>
+					<option value="s_v4,남쪽">남쪽</option>
+					<option value="s_v4,북쪽">북쪽</option>
+					<option value="s_v4,Central">Central</option>
+					</select>
+					</span>
+					
+					 <span id="local_sel_span2" name="keyfield2"	onchange="user_form_sel('tmp_s_v5',this.value)"> 
+					 <select>
+					<option value="">전체</option>
+					<option value="s_v5,Bedok (D16)">Bedok</option>
+					<option value="s_v5,Braddell (D13)">Braddell</option>
+					<option value="s_v5,Changi (D17)">Changi</option>
+					<option value="s_v5,East Coast (D15)">East Coast</option>
+					<option value="s_v5,Eunos (D14)">Eunos</option>
+					<option value="s_v5,Geylang (D14)">Geylang</option>
+					<option value="s_v5,Joo Chiat (D15)">Joo Chiat</option>
+					<option value="s_v5,Katong (D15)">Katong</option>
+					<option value="s_v5,Loyang (D17)">Loyang</option>
+					<option value="s_v5,MacPherson (D13)">MacPherson</option>
+					<option value="s_v5,Pasir Ris (D18)">Pasir Ris</option>
+					<option value="s_v5,Paya Lebar (D14)">Paya Lebar</option>
+					<option value="s_v5,Potong Pasir (D13)">Potong Pasir</option>
+					<option value="s_v5,Tampines (D18)">Tampines</option>
+					<option value="s_v5,Upper East Coast (D16)">Upper East Coast</option>
+					<option value="s_v5,Boon Lay (D22)">Boon Lay</option>
+					<option value="s_v5,Bukit Panjang (D23)">Bukit Panjang</option>
+					<option value="s_v5,Choa Chu Kang (D23)">Choa Chu Kang</option>
+					<option value="s_v5,Hillview (D23)">Hillview</option>
+					<option value="s_v5,Jurong (D22)">Jurong</option>
+					<option value="s_v5,Lim Chu Kang (D24)">Lim Chu Kang</option>
+					<option value="s_v5,Queenstown (D03)">Queenstown</option>
+					<option value="s_v5,Sentosa (D04)">Sentosa</option>
+					<option value="s_v5,Telok Blangah (D04)">Telok Blangah</option>
+					<option value="s_v5,Tiong Bahru (D03)">Tiong Bahru</option>
+					<option value="s_v5,Admiralty (D25)">Admiralty</option>
+					<option value="s_v5,Ang Mo Kio (D20)">Ang Mo Kio</option>
+					<option value="s_v5,Bishan (D20)">Bishan</option>
+					<option value="s_v5,Hougang (D19)">Hougang</option>
+					<option value="s_v5,Lentor (D26)">Lentor</option>
+					<option value="s_v5,Punggol (D19)">Punggol</option>
+					<option value="s_v5,Seletar (D28)">Seletar</option>
+					<option value="s_v5,Sembawang (D27)">Sembawang</option>
+					<option value="s_v5,Sengkang (D19)">Sengkang</option>
+					<option value="s_v5,Serangoon garden (D19)">Serangoon garden</option>
+					<option value="s_v5,Springleaf (D26)">Springleaf</option>
+					<option value="s_v5,Thomson (D20)">Thomson</option>
+					<option value="s_v5,Upper Thomson (D26)">Upper Thomson</option>
+					<option value="s_v5,Woodlands (D25)">Woodlands</option>
+					<option value="s_v5,Yishun (D27)">Yishun</option>
+					<option value="s_v5,Balestier (D12)">Balestier</option>
+					<option value="s_v5,Beach Road (D07)">Beach Road</option>
+					<option value="s_v5,Boon Keng (D12)">Boon Keng</option>
+					<option value="s_v5,Bugis (D07)">Bugis</option>
+					<option value="s_v5,Bukit Timah (D10)">Bukit Timah</option>
+					<option value="s_v5,Cairnhill (D09)">Cairnhill</option>
+					<option value="s_v5,Clementi Road (D21)">Clementi Road</option>
+					<option value="s_v5,Clementi Town (D05)">Clementi Town</option>
+					<option value="s_v5,High Street (D06)">High Street</option>
+					<option value="s_v5,Holland Road (D10)">Holland Road</option>
+					<option value="s_v5,Little India (D08)">Little India</option>
+					<option value="s_v5,Newton (D11)">Newton</option>
+					<option value="s_v5,North Bridge Road (D06)">North Bridge Road</option>
+					<option value="s_v5,Novena (D11)">Novena</option>
+					<option value="s_v5,Orchard (D09)">Orchard</option>
+					<option value="s_v5,Pasir Panjang (D05)">Pasir Panjang</option>
+					<option value="s_v5,River Valley (D09)">River Valley</option>
+					<option value="s_v5,Rochor (D07)">Rochor</option>
+					<option value="s_v5,Serangoon (D12)">Serangoon</option>
+					<option value="s_v5,Sunset (D21)">Sunset</option>
+					<option value="s_v5,Tanglin (D10)">Tanglin</option>
+					<option value="s_v5,Toa Payoh (D12)">Toa Payoh</option>
+					<option value="s_v5,Ulu Pandan (D21)">Ulu Pandan</option>
+					<option value="s_v5,Upper Bukit Timah (D21)">Upper Bukit	Timah</option>
+					<option value="s_v5,West Coast (D05)">West Coast</option>
+					<option value="s_v5,West Coast (D05)">Raffles Pl</option>
+					<option value="s_v5,West Coast (D05)">Marina</option>
+					<option value="s_v5,West Coast (D05)">Chinatown</option>
+					<option value="s_v5,West Coast (D05)">Anson</option>
+					<option value="s_v5,West Coast (D05)">Tg Pagar</option>
+			</select>
+		</span>
 
-여자분만 신청하실 수 있고, 흡연자/애완동물은 안됩니다.
+</form>
+</main>
 
-방에는 에어컨,책상,싱글침대,옷장이 있습니다. 에어컨은 주인이 새로 교체해줬습니다.
+<script>
 
-(주방 사진에 있는 빨래건조기는 없습니다. 주인이 고장난걸 그냥 놔뒀던겁니다.)
 
- 
+var local_arr2 = new Array();
+local_arr2[0] = "<option value='s_v5,Bedok (D16)'>Bedok</option>";
+local_arr2[1] = "<option value='s_v5,Braddell (D13)'>Braddell</option>";
+local_arr2[2] = "<option value='s_v5,Changi (D17)'>Changi</option>";
+local_arr2[3] = "<option value='s_v5,East Coast (D15)'>East Coast</option>";
+local_arr2[4] = "<option value='s_v5,Eunos (D14)'>Eunos</option>";
+local_arr2[5] = "<option value='s_v5,Geylang (D14)'>Geylang</option>";
+local_arr2[6] = "<option value='s_v5,Joo Chiat (D15)'>Joo Chiat</option>";
+local_arr2[7] = "<option value='s_v5,Katong (D15)'>Katong</option>";
+local_arr2[8] = "<option value='s_v5,Loyang (D17)'>Loyang</option>";
+local_arr2[9] = "<option value='s_v5,MacPherson (D13)'>MacPherson</option>";
+local_arr2[10] = "<option value='s_v5,Pasir Ris (D18)'>Pasir Ris</option>";
+local_arr2[11] = "<option value='s_v5,Paya Lebar (D14)'>Paya Lebar</option>";
+local_arr2[12] = "<option value='s_v5,Potong Pasir (D13)'>Potong Pasir</option>";
+local_arr2[13] = "<option value='s_v5,Tampines (D18)'>Tampines</option>";
+local_arr2[14] = "<option value='s_v5,Upper East Coast (D16)'>Upper East Coast</option>";
+local_arr2[15] = "<option value='s_v5,Boon Lay (D22)'>Boon Lay</option>";
+local_arr2[16] = "<option value='s_v5,Bukit Panjang (D23)'>Bukit Panjang</option>";
+local_arr2[17] = "<option value='s_v5,Choa Chu Kang (D23)'>Choa Chu Kang</option>";
+local_arr2[18] = "<option value='s_v5,Hillview (D23)'>Hillview</option>";
+local_arr2[19] = "<option value='s_v5,Jurong (D22)'>Jurong</option>";
+local_arr2[20] = "<option value='s_v5,Lim Chu Kang (D24)'>Lim Chu Kang</option>";
+local_arr2[21] = "<option value='s_v5,Queenstown (D03)'>Queenstown</option>";
+local_arr2[22] = "<option value='s_v5,Sentosa (D04)'>Sentosa</option>";
+local_arr2[23] = "<option value='s_v5,Telok Blangah (D04)'>Telok Blangah)</option>";
+local_arr2[24] = "<option value='s_v5,Tiong Bahru (D03)'>Tiong Bahru</option>";
+local_arr2[25] = "<option value='s_v5,Admiralty (D25)'>Admiralty</option>";
+local_arr2[26] = "<option value='s_v5,Ang Mo Kio (D20)'>Ang Mo Kio</option>";
+local_arr2[27] = "<option value='s_v5,Bishan (D20)'>Bishan</option>";
+local_arr2[28] = "<option value='s_v5,Hougang (D19)'>Hougang</option>";
+local_arr2[29] = "<option value='s_v5,Lentor (D26)'>Lentor</option>";
+local_arr2[30] = "<option value='s_v5,Punggol (D19)'>Punggol</option>";
+local_arr2[31] = "<option value='s_v5,Seletar (D28)'>Seletar</option>";
+local_arr2[32] = "<option value='s_v5,Sembawang (D27)'>Sembawang</option>";
+local_arr2[33] = "<option value='s_v5,Sengkang (D19)'>Sengkang</option>";
+local_arr2[34] = "<option value='s_v5,Serangoon garden (D19)'>Serangoon garden</option>";
+local_arr2[35] = "<option value='s_v5,Springleaf (D26)'>Springleaf</option>";
+local_arr2[36] = "<option value='s_v5,Thomson (D20)'>Thomson</option>";
+local_arr2[37] = "<option value='s_v5,Upper Thomson (D26)'>Upper Thomson</option>";
+local_arr2[38] = "<option value='s_v5,Woodlands (D25)'>Woodlands)</option>";
+local_arr2[39] = "<option value='s_v5,Yishun (D27)'>Yishun)</option>";
+local_arr2[40] = "<option value='s_v5,Balestier (D12)'>Balestier)</option>";
+local_arr2[41] = "<option value='s_v5,Beach Road (D07)'>Beach Road)</option>";
+local_arr2[42] = "<option value='s_v5,Boon Keng (D12)'>Boon Keng</option>";
+local_arr2[43] = "<option value='s_v5,Bugis (D07)'>Bugis</option>";
+local_arr2[44] = "<option value='s_v5,Bukit Timah (D10)'>Bukit Timah</option>";
+local_arr2[45] = "<option value='s_v5,Cairnhill (D09)'>Cairnhil</option>";
+local_arr2[46] = "<option value='s_v5,Clementi Road (D21)'>Clementi Road</option>";
+local_arr2[47] = "<option value='s_v5,Clementi Town (D05)'>Clementi Town</option>";
+local_arr2[48] = "<option value='s_v5,High Street (D06)'>High Street</option>";
+local_arr2[49] = "<option value='s_v5,Holland Road (D10)'>Holland Road</option>";
+local_arr2[50] = "<option value='s_v5,Little India (D08)'>Little India</option>";
+local_arr2[51] = "<option value='s_v5,Newton (D11)'>Newton</option>";
+local_arr2[52] = "<option value='s_v5,North Bridge Road (D06)'>North Bridge Road</option>";
+local_arr2[53] = "<option value='s_v5,Novena (D11)'>Novena</option>";
+local_arr2[54] = "<option value='s_v5,Orchard (D09)'>Orchard</option>";
+local_arr2[55] = "<option value='s_v5,Pasir Panjang (D05)'>Pasir Panjang</option>";
+local_arr2[56] = "<option value='s_v5,River Valley (D09)'>River Valley</option>";
+local_arr2[57] = "<option value='s_v5,Rochor (D07)'>Rochor</option>";
+local_arr2[58] = "<option value='s_v5,Serangoon (D12)'>Serangoon</option>";
+local_arr2[59] = "<option value='s_v5,Sunset (D21)'>Sunset</option>";
+local_arr2[60] = "<option value='s_v5,Tanglin (D10)'>Tanglin</option>";
+local_arr2[61] = "<option value='s_v5,Toa Payoh (D12)'>Toa Payoh</option>";
+local_arr2[62] = "<option value='s_v5,Ulu Pandan (D21)'>Ulu Pandan</option>";
+local_arr2[63] = "<option value='s_v5,Upper Bukit Timah (D21)'>Upper Bukit Timah</option>";
+local_arr2[64] = "<option value='s_v5,West Coast (D05)'>West Coast</option>";
+local_arr2[65] = "<option value='s_v5,West Coast (D05)'>Raffles Pl</option>";
+local_arr2[66] = "<option value='s_v5,West Coast (D05)'>Marina</option>";
+local_arr2[67] = "<option value='s_v5,West Coast (D05)'>Chinatown</option>";
+local_arr2[68] = "<option value='s_v5,West Coast (D05)'>Anson</option>";
+local_arr2[69] = "<option value='s_v5,West Coast (D05)'>Tg Pagar</option>";
 
-콘도가 도로에 붙어있지만, 저희 집은 콘도 안쪽에 있어서 소음이 전혀없습니다. 
 
-아주 조용하구요.
+function user_local_select(val){
+	if(val == '동쪽'){
+		var option_num1 = 0;
+		var option_num2 = 15;
+	}else if(val == '서쪽'){
+		var option_num1 = 15;
+		var option_num2 = 21;
+	}else if(val == '남쪽'){
+		var option_num1 = 21;
+		var option_num2 = 25;
+	}else if(val == '북쪽'){
+		var option_num1 = 25;
+		var option_num2 = 40;
+	}else if(val == 'Central'){
+		var option_num1 = 40;
+		var option_num2 = 70;
+	}else{
+		var option_num1 = 0;
+		var option_num2 = 70;
+	}
 
-집안에 세탁기,냉장고,인터넷,가스렌지,전자렌지 모두 구비돼있고 취사는 자유롭습니다.
+	var local_arr_str = "<select name='keyfield2' onchange=user_form_sel('tmp_s_v5',this.value)>";
+	local_arr_str += "<option value=''>전체</option>";
+	for(var i = option_num1; i < option_num2; i++){
+		local_arr_str += local_arr2[i];
+	}
+	local_arr_str += "</select>";
 
-공과금은 입주자 전체 숫자로 나눠서 한달에 한번씩 내구요. 대략 50불정도 입니다.
+	$('#local_sel_span2').html(local_arr_str);
+}
 
-24시간 사용할 수 있는 gym이 조그맣게 있고, 수영장은 작아서 10미터 정도 길이입니다.
+function user_form_sel(obj,val){
+	var form = document.local_search_form;
+	if(obj == 'myboard_code') form.myboard_code.value = val;
+	else if(obj == 'tmp_s_v4'){
+		var tmp_val_arr = val.split(",");
+		form.s_v4.value = tmp_val_arr[1];
+		user_local_select(tmp_val_arr[1]);
 
- 
+	}else if(obj == 'tmp_s_v5'){
+		var tmp_val_arr = val.split(",");
+		form.s_v5.value = tmp_val_arr[1];
 
-버스정류장이 콘도 정문 바로 앞(5미터)에 있어서 버스로 출퇴근하시면 엄청 편합니다.
-
-홀랜드 빌리지 역이 약3백미터 거리, 버스정류장으로는 한 정류장 거리 입니다.
-
- 
-
-홀랜드 빌리지에 24시간 콜드스토리지,은행들,상가,2개의 호커센터가 있습니다.
-
- 
-
-홀랜드 빌리지 안쪽으로 좀더 들어가면 페어프라이스와 가게들이 있습니다.
-
- 
-
-한달에 850불이고, 보증금은 500불입니다.
-
-카톡: xaexal 로 연락주세요.
-                        </p>
-                        </div>
-                   
-                	</article>
-                	
-                	
-             	<!-- Comments -->
-                <div class="comments-pan">
-                	<h3>3개의 댓글이 있습니다</h3>
-                    <ul class="comments-reply">
-                    	<li>
-                          	<section>
-                                <h4>eotrmf <button class="btn btn-default btn-add" style="color:red">답변</button></h4>
-                                <div class="date-pan">2018.4.23</div>
-                              		제가 예약할게요
-                            </section>
-                            
-							<ol class="reply-pan" style="display:none">
-                            	<li>
-	                            <section>
-	                                        <h4> rmfTmsdl <button class="btn btn-default btn-add2" style="color:red">답변</button></h4>
-	                                        <div class="date-pan">2018.4.23</div>
-	                                       ㅇㅋ
-	                            </section>
-                                </li>
-                                
-			                            <ol class="reply-pan" style="display:none">
-			                            	<li>
-				                            <section>
-				                                        <h4> rmfTmsdl <button class="btn btn-default btn-add2" style="color:red">답변</button></h4>
-				                                        <div class="date-pan">2018.4.23</div>
-				                                       ㅇㅋ
-				                            </section>
-			                                </li>
-			                            </ol>
-                            
-                            </ol>
-                       </li>
-                    </ul>
-                    
-                    <div class="commentys-form">
-                    	<h4>댓글 달기</h4>
-                      <div class="row">
-                        	<form action="" method="get">                            
-                                 <div class="clearfix"></div>
-                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                 	<textarea name="" cols="" rows="" placeholder="댓글"></textarea>
-                                </div>
-                                <div class="text-center">
-                                	<input name="" type="button" value="댓글 달기">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-               </div>  
-               </div>               
-
-        </main>
- <script>
-	 $(function() {
-		 var addBtn = $(".btn-add");
-
-		 
-		 addBtn.click(function(){
-			 $("ol:first").toggle();
-		 });
-	
-	});
+	}else if(obj == 'tmp_s_v6'){
+		form.s_v6.value = '';
+		form.s_v7.value = '';
+		var tmp_val_arr = val.split(",");
+	}
+}
 
 </script>
