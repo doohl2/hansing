@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
 <link rel="stylesheet" href="${ctx}/resources/css/styl.css">
+<link rel="stylesheet" href="${ctx}/resources/css/write.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script> 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
@@ -38,325 +39,11 @@
 <!-- optionally if you need translation for your language then include  locale file as mentioned below -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/locales/LANG.js"></script> -->
 
-
-<style>
-	label{pointer-events:auto !important;}
-</style>
 <style>
 .btn-file{height:34px;}
 .form-control{padding-top: 0px !important; padding-bottom: 0px !important;}
 .custom-select{border:none;padding:0;}
-.fileinput-remove-button{display:none;}
-.form-control{padding:18px;}
-.file-caption-main{width:88.5%;}
-.fileinput-upload-button{display:none;}
-.btn-file{
-    padding-right: 100px;
-}
-.reg-container {
-    padding: 16px;
-    background-color: white;
-}
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
-}
-
-/* Overwrite default styles of hr */
-hr {
-    border: 1px solid #f1f1f1;
-    margin-bottom: 25px;
-}
-
-/* Set a style for the submit button */
-.registerbtn {
-    background-color: black;
-    color: white;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-}
-
-.registerbtn:hover {
-    opacity: 1;
-}
-
-.file-preview{
-width:98%;
-}
-/* ---------------------------------------------select box--------------------------------------------------- */
-/* Add a blue text color to links */
-a {
-    color: dodgerblue;
-}
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-    background-color: #f1f1f1;
-    text-align: center;
-}
-
-/*the container must be positioned relative:*/
-.custom-select {
-  position: relative;
-  font-family: Arial;
-}
-.custom-select select {
-  display: none; /*hide original SELECT element:*/
-}
-.select-selected {
-  background-color: #f1f1f1;
-}
-/*style the arrow inside the select element:*/
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 26px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-/*point the arrow upwards when the select box is open (active):*/
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
-/*style the items (options), including the selected item:*/
-.select-items div,.select-selected {
-  color:gray;
-  padding:15.5px;
-  border:none;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
-  user-select: none;
-}
-
-.width98{
-	width:98% !important;
-}
-/*style items (options):*/
-.select-items {
-  position: absolute;
-  background-color: #f1f1f1;
-  top: 100%;
-  left: 0;  right: 0;
-  z-index: 99;
-}
-/*hide the items when the select box is closed:*/
-.select-hide {
-  display: none;
-}
-.select-items div:hover, .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-/* --------------------------------------------------------------checkbox ------------------------------------------------------------*/
-/* The container */
-.checkbox-container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* Hide the browser's default checkbox */
-.checkbox-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-}
-
-/* On mouse-over, add a grey background color */
-.checkbox-container:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.checkbox-container input:checked ~ .checkmark {
-    background-color: #2196F3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the checkmark when checked */
-.checkbox-container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-/* Style the checkmark/indicator */
-.checkbox-container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
-/* --------------------------------------------radio button----------------------------------------------- */
-/* The container */
-.radio-container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* Hide the browser's default radio button */
-.radio-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
-
-/* Create a custom radio button */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-}
-
-/* On mouse-over, add a grey background color */
-.radio-container:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-
-/* When the radio button is checked, add a blue background */
-.radio-container input:checked ~ .checkmark {
-    background-color: #2196F3;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.radio-container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.radio-container .checkmark:after {
- 	top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: white;
-}
- /* --------------------------------toggle--------------------------------------- */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  top:-5px;
-}
-
-.switch input {display:none;}
-a:focus{text-decoration: none;}
-.switch-div-padding{
-    padding: 4.5px !important;
-    }
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: black;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-.input-style-div{
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
 </style>
 <main class="container padding-top-ninety">
     <form name="local_search_form" >
@@ -396,17 +83,17 @@ input:checked + .slider:before {
     <div style="margin: 5px 0 22px 0;">
     <div class="custom-select" style="width:49%;">
   <select>
-    <option value="0">HDB</option>
-    <option value="1">콘도</option>
-    <option value="2">주택</option>
-    <option value="3">상가</option>
+    <option value="HDB">HDB</option>
+    <option value="콘도">콘도</option>
+    <option value="주택">주택</option>
+    <option value="상가">상가</option>
   </select>
   </div>
-  <div class="custom-select" style="width:49%; border-left: 2px solid white;">
+  <div class="custom-select" style="width:49%;">
     <select>
-    <option value="0">커먼룸</option>
-    <option value="1">마스터룸</option>
-    <option value="2">메이드룸</option>
+    <option value="커먼룸">커먼룸</option>
+    <option value="마스터룸">마스터룸</option>
+    <option value="메이드룸">메이드룸</option>
   </select>
 </div>
 </div>
@@ -416,24 +103,25 @@ input:checked + .slider:before {
     <big><b>지역</b></big>
 	</div>	
    <br>
-   	<input type="hidden" name="s_v4" value="undefined">
-	<input type="hidden" name="s_v5" value="undefined"> 
     <div style="margin: 5px 0 22px 0;">
-    <div class="custom-select" style="width:49%;">
-  	<span id="local_sel_span1">
-					<select name="keyfield" onchange="user_form_sel(&#39;tmp_s_v4&#39;,this.value)">
-					<option value="">전체</option>
-					<option value="s_v4,동쪽">동쪽</option>
-					<option value="s_v4,서쪽">서쪽</option>
-					<option value="s_v4,남쪽">남쪽</option>
-					<option value="s_v4,북쪽">북쪽</option>
-					<option value="s_v4,Central">Central</option>
+    
+	
+
+   	<input type="hidden" name="s_v4" value="undefined">
+					<span id="local_sel_span1">
+						<select name="keyfield" onchange="user_form_sel(&#39;tmp_s_v4&#39;,this.value)" class="div-select">
+						<option value="">전체</option>
+						<option value="s_v4,동쪽">동쪽</option>
+						<option value="s_v4,서쪽">서쪽</option>
+						<option value="s_v4,남쪽">남쪽</option>
+						<option value="s_v4,북쪽">북쪽</option>
+						<option value="s_v4,Central">Central</option>
 					</select>
 					</span>
-  </div>
-  <div class="custom-select" style="width:49%; border-left: 2px solid white;">
-    <span id="local_sel_span2" name="keyfield2"	onchange="user_form_sel('tmp_s_v5',this.value)"> 
-					 <select>
+		
+    				<input type="hidden" name="s_v5" value="undefined"> 
+					   <span id="local_sel_span2" name="keyfield2"	onchange="user_form_sel('tmp_s_v5',this.value)" > 
+					 <select class="div-select" style="margin-left:5px;">
 					<option value="">전체</option>
 					<option value="s_v5,Bedok (D16)">Bedok</option>
 					<option value="s_v5,Braddell (D13)">Braddell</option>
@@ -507,7 +195,7 @@ input:checked + .slider:before {
 					<option value="s_v5,West Coast (D05)">Tg Pagar</option>
 			</select>
 		</span>
-</div>
+
 </div>
    
    
@@ -744,6 +432,7 @@ $(document).on('ready', function() {
 </script>
 
 <script>
+
 var local_arr2 = new Array();
 local_arr2[0] = "<option value='s_v5,Bedok (D16)'>Bedok</option>";
 local_arr2[1] = "<option value='s_v5,Braddell (D13)'>Braddell</option>";
@@ -768,7 +457,7 @@ local_arr2[19] = "<option value='s_v5,Jurong (D22)'>Jurong</option>";
 local_arr2[20] = "<option value='s_v5,Lim Chu Kang (D24)'>Lim Chu Kang</option>";
 local_arr2[21] = "<option value='s_v5,Queenstown (D03)'>Queenstown</option>";
 local_arr2[22] = "<option value='s_v5,Sentosa (D04)'>Sentosa</option>";
-local_arr2[23] = "<option value='s_v5,Telok Blangah (D04)'>Telok Blangah)</option>";
+local_arr2[23] = "<option value='s_v5,Telok Blangah (D04)'>Telok Blangah</option>";
 local_arr2[24] = "<option value='s_v5,Tiong Bahru (D03)'>Tiong Bahru</option>";
 local_arr2[25] = "<option value='s_v5,Admiralty (D25)'>Admiralty</option>";
 local_arr2[26] = "<option value='s_v5,Ang Mo Kio (D20)'>Ang Mo Kio</option>";
@@ -783,10 +472,10 @@ local_arr2[34] = "<option value='s_v5,Serangoon garden (D19)'>Serangoon garden</
 local_arr2[35] = "<option value='s_v5,Springleaf (D26)'>Springleaf</option>";
 local_arr2[36] = "<option value='s_v5,Thomson (D20)'>Thomson</option>";
 local_arr2[37] = "<option value='s_v5,Upper Thomson (D26)'>Upper Thomson</option>";
-local_arr2[38] = "<option value='s_v5,Woodlands (D25)'>Woodlands)</option>";
-local_arr2[39] = "<option value='s_v5,Yishun (D27)'>Yishun)</option>";
-local_arr2[40] = "<option value='s_v5,Balestier (D12)'>Balestier)</option>";
-local_arr2[41] = "<option value='s_v5,Beach Road (D07)'>Beach Road)</option>";
+local_arr2[38] = "<option value='s_v5,Woodlands (D25)'>Woodlands</option>";
+local_arr2[39] = "<option value='s_v5,Yishun (D27)'>Yishun</option>";
+local_arr2[40] = "<option value='s_v5,Balestier (D12)'>Balestier</option>";
+local_arr2[41] = "<option value='s_v5,Beach Road (D07)'>Beach Road</option>";
 local_arr2[42] = "<option value='s_v5,Boon Keng (D12)'>Boon Keng</option>";
 local_arr2[43] = "<option value='s_v5,Bugis (D07)'>Bugis</option>";
 local_arr2[44] = "<option value='s_v5,Bukit Timah (D10)'>Bukit Timah</option>";
@@ -837,8 +526,10 @@ function user_local_select(val){
 		var option_num1 = 0;
 		var option_num2 = 70;
 	}
+	
+	
 
-	var local_arr_str = "<select name='keyfield2' onchange=user_form_sel('tmp_s_v5',this.value)>";
+	var local_arr_str = "<select name='keyfield2' class='div-select' style='margin-left:5px;' onchange=user_form_sel('tmp_s_v5',this.value)>";
 	local_arr_str += "<option value=''>전체</option>";
 	for(var i = option_num1; i < option_num2; i++){
 		local_arr_str += local_arr2[i];
@@ -866,5 +557,9 @@ function user_form_sel(obj,val){
 		var tmp_val_arr = val.split(",");
 	}
 }
+
+</script>
+
+<script>
 
 </script>
