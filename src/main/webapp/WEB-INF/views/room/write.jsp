@@ -43,7 +43,12 @@
 .btn-file{height:34px;}
 .form-control{padding-top: 0px !important; padding-bottom: 0px !important;}
 .custom-select{border:none;padding:0;}
-
+.form-control{padding:18px;}
+.file-caption-main{width:88.5%;}
+.fileinput-upload-button{display:none;}
+.btn-file{
+    padding-right: 100px;
+}
 </style>
 <main class="container padding-top-ninety">
     <form name="local_search_form" >
