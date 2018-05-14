@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Member {
@@ -15,19 +16,26 @@ public class Member {
 	private String name;
 	private String nickname;
 	
-	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+	@Transient
 	private List<Room> rooms;
-	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+	@Transient
 	private List<Job> jobs;
-	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+	@Transient
 	private List<Market> markets;
-	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+	@Transient
 	private List<MarketComment> marketComments;
-	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+	@Transient
 	private List<CommunityComment> communityComments;
-	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+	@Transient
 	private List<Community> communities;
-	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
+	@Transient
 	private List<Store> stores;
 	public Member() {
 		// TODO Auto-generated constructor stub

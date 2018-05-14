@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class CommunityType {
@@ -13,7 +14,8 @@ public class CommunityType {
 	@Id
 	private String name;
 
-	@OneToMany(mappedBy="communityType",cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="communityType",cascade=CascadeType.ALL)
+	@Transient	
 	private List<Community> communities;
 	
 	public CommunityType() {

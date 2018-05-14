@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Job {
@@ -27,15 +28,18 @@ public class Job {
 	private boolean parmanentPosition;
 	private int hit;
 	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="jobTypeName")
+//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+//	@JoinColumn(name="jobTypeName")
+	@Transient
 	private JobType jobType;
 	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="memberId")
+//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+//	@JoinColumn(name="memberId")
+	@Transient
 	private Member member;
 	
-	@OneToMany(mappedBy="job",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="job",	cascade=CascadeType.ALL)
+	@Transient
 	private List<JobAttachment> jobAttachment;
 	
 	public Job() {

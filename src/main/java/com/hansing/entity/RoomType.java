@@ -6,13 +6,15 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class RoomType {
 	@Id
 	private String name;
 
-	@OneToMany(mappedBy="roomType",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="roomType",	cascade=CascadeType.ALL)
+	@Transient
 	private List<Room> rooms;
 	
 	public RoomType() {

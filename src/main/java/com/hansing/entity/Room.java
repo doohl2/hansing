@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Room {
@@ -19,6 +21,7 @@ public class Room {
 	private int id;
 	private String title;
 	private String content;
+	@Column(insertable=false)
 	private Date regDate;
 	private String contactNo;
 	private int price;
@@ -31,23 +34,28 @@ public class Room {
 	private String gender;
 	private int minDuration; 
 	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="memberId")
+//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+//	@JoinColumn(name="memberId")
+	@Transient
 	private Member member;
 	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="directionName")
+//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+//	@JoinColumn(name="directionName")
+	@Transient
 	private Direction direction;
 	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="roomSizeName")
+//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+//	@JoinColumn(name="roomSizeName")
+	@Transient
 	private RoomSize roomSize;
 	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="roomTypeName")
+//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+//	@JoinColumn(name="roomTypeName")
+	@Transient
 	private RoomType roomType;
 	
-	@OneToMany(mappedBy="room",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="room",	cascade=CascadeType.ALL)
+	@Transient
 	private List<RoomDetailImg> roomDetailImgs;
 	
 	public Room() {

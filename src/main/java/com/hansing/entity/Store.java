@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Store {
@@ -19,15 +20,18 @@ public class Store {
 	private String intro;
 	private boolean adv;
 	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="storeTypeName")
+//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+//	@JoinColumn(name="storeTypeName")
+	@Transient
 	private StoreType storeType;
 	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="memberId")
+//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+//	@JoinColumn(name="memberId")
+	@Transient
 	private Member member;
 	
-	@OneToMany(mappedBy="store",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="store",	cascade=CascadeType.ALL)
+	@Transient
 	private List<StoreImg> storeImgs;
 	
 	public Store() {

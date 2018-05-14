@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Direction {
@@ -13,10 +14,12 @@ public class Direction {
 	@Id
 	private String name;
 	
-	@OneToMany(mappedBy="direction",cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="direction",cascade=CascadeType.ALL)
+	@Transient
 	private List<Location> locations;
 	
-	@OneToMany(mappedBy="direction",cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="direction",cascade=CascadeType.ALL)
+	@Transient
 	private List<Room> rooms;
 	
 	public Direction() {

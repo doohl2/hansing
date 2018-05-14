@@ -6,13 +6,15 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class StoreType {
 	@Id
 	private String name;
 	
-	@OneToMany(mappedBy="storeType",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="storeType",	cascade=CascadeType.ALL)
+	@Transient
 	private List<Store> stores;
 	
 	public StoreType() {

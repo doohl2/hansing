@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Market {
@@ -19,24 +21,29 @@ public class Market {
 	private int id;
 	private String title;
 	private String content;
+	@Column(insertable=false)
 	private Date regDate;
 	private int price;
 	private String contactNo;
 	private String mainImg;
 	private int hit;
 	
-	@OneToMany(mappedBy="market",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="market",	cascade=CascadeType.ALL)
+	@Transient
 	private List<MarketComment> marketComments;
 	
-	@OneToMany(mappedBy="market",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="market",	cascade=CascadeType.ALL)
+	@Transient
 	private List<MarketImg> marketImgs;
 	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="marketTypeName")
+//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+//	@JoinColumn(name="marketTypeName")
+	@Transient
 	private MarketType marketType;
 	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="memberId")
+//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+//	@JoinColumn(name="memberId")
+	@Transient
 	private Member member;
 	
 	public Market() {

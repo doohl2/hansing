@@ -2,6 +2,7 @@ package com.hansing.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
@@ -10,7 +11,7 @@ public class MemberRole {
 
 	@EmbeddedId
 	private MemberRoleId memberRoleId;
-	
+	@Column(insertable=false)
 	private Date regDate;
 	private boolean defaultRole;
 	

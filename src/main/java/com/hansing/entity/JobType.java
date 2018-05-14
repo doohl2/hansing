@@ -6,13 +6,15 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class JobType {
 	@Id
 	private String name;
 	
-	@OneToMany(mappedBy="jobType", cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="jobType", cascade=CascadeType.ALL)
+	@Transient
 	private List<Job> jobs;
 	
 	public JobType() {

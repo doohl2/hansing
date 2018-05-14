@@ -46,9 +46,7 @@
 .form-control{padding:18px;}
 .file-caption-main{width:88.5%;}
 .fileinput-upload-button{display:none;}
-.btn-file{
-    padding-right: 100px;
-}
+.btn-file{padding-right: 100px;}
 </style>
 <main class="container padding-top-ninety">
     <form name="local_search_form" >
@@ -115,11 +113,11 @@
    	<input type="hidden" name="s_v4" value="undefined">
 					<span id="local_sel_span1">
 						<select name="keyfield" onchange="user_form_sel(&#39;tmp_s_v4&#39;,this.value)" class="div-select">
-						<option value="">전체</option>
-						<option value="s_v4,동쪽">동쪽</option>
-						<option value="s_v4,서쪽">서쪽</option>
-						<option value="s_v4,남쪽">남쪽</option>
-						<option value="s_v4,북쪽">북쪽</option>
+						<option value="">ALL</option>
+						<option value="s_v4,동쪽">East</option>
+						<option value="s_v4,서쪽">West</option>
+						<option value="s_v4,남쪽">South</option>
+						<option value="s_v4,북쪽">North</option>
 						<option value="s_v4,Central">Central</option>
 					</select>
 					</span>
@@ -127,7 +125,7 @@
     				<input type="hidden" name="s_v5" value="undefined"> 
 					   <span id="local_sel_span2" name="keyfield2"	onchange="user_form_sel('tmp_s_v5',this.value)" > 
 					 <select class="div-select" style="margin-left:5px;">
-					<option value="">전체</option>
+					<option value="">ALL</option>
 					<option value="s_v5,Bedok (D16)">Bedok</option>
 					<option value="s_v5,Braddell (D13)">Braddell</option>
 					<option value="s_v5,Changi (D17)">Changi</option>

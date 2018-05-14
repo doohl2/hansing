@@ -6,13 +6,15 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class MarketType {
 	@Id
 	private String name;
 
-	@OneToMany(mappedBy="marketType",	cascade=CascadeType.ALL)
+//	@OneToMany(mappedBy="marketType",	cascade=CascadeType.ALL)
+	@Transient
 	private List<Market> markets;
 	
 	public MarketType() {

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Community {
@@ -20,36 +22,35 @@ public class Community {
 	private int id;
 	private String title;
 	private String content;
+	@Column(insertable=false)
 	private String writerId;
-	private String img;
+	@Column(insertable=false)
 	private Date regDate;
 	
-	@OneToMany(mappedBy="community",cascade=CascadeType.ALL)
+	@Transient
 	private List<CommunityComment> communityComments;
-	
-	@OneToMany(mappedBy="community", cascade=CascadeType.ALL)
+	@Transient
 	private List<CommunityImg> communityImgs;
-	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="communityTypeName")
+	@Transient
 	private CommunityType communityType;
-	
-	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-	@JoinColumn(name="memberId")
+	@Transient
 	private Member member;
 	
 	public Community() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Community(int id, String title, String content, String writerId, String img, Date regDate,
+	public Community(String title) {
+		this.title = title;
+	}
+
+	public Community(int id, String title, String content, String writerId, Date regDate,
 			List<CommunityComment> communityComments, List<CommunityImg> communityImgs, CommunityType communityType,
 			Member member) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.writerId = writerId;
-		this.img = img;
 		this.regDate = regDate;
 		this.communityComments = communityComments;
 		this.communityImgs = communityImgs;
@@ -87,14 +88,6 @@ public class Community {
 
 	public void setWriterId(String writerId) {
 		this.writerId = writerId;
-	}
-
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
 	}
 
 	public Date getRegDate() {
@@ -139,8 +132,7 @@ public class Community {
 
 	@Override
 	public String toString() {
-		return "Community [id=" + id + ", title=" + title + ", content=" + content + ", writerId=" + writerId + ", img="
-				+ img + ", regDate=" + regDate + ", communityComments=" + communityComments + ", communityImgs="
+		return "Community [id=" + id + ", title=" + title + ", content=" + content + ", writerId=" + writerId + ", regDate=" + regDate + ", communityComments=" + communityComments + ", communityImgs="
 				+ communityImgs + ", communityType=" + communityType + ", member=" + member + "]";
 	}
 	
