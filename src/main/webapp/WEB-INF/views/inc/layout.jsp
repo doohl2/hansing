@@ -47,7 +47,7 @@
 		<script src="${ctx}/resources/js/nav.js" type="text/javascript"></script>
         <script src="${ctx}/resources/js/custom.js" type="text/javascript"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="${ctx}/resources/js/bootstrap.min.js" type="text/javascript"></script>
+<%--         <script src="${ctx}/resources/js/bootstrap.min.js" type="text/javascript"></script> --%>
         <script src="${ctx}/resources/js/effects/masonry.pkgd.min.js"  type="text/javascript"></script>
 		<script src="${ctx}/resources/js/effects/imagesloaded.js"  type="text/javascript"></script>
 		<script src="${ctx}/resources/js/effects/classie.js"  type="text/javascript"></script>

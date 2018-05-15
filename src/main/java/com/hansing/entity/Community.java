@@ -15,17 +15,23 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 public class Community {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String title;
-	private String content;
-	@Column(insertable=false)
-	private String writerId;
+	private String content;	
+	@Column(insertable=false, updatable=false) 
+	private Integer hit;
 	@Column(insertable=false)
 	private Date regDate;
+	@Column(insertable=false)
+	private String communityTypeName;
+	@Column(insertable=false)
+	private String memberId;
 	
 	@Transient
 	private List<CommunityComment> communityComments;
@@ -40,18 +46,26 @@ public class Community {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Community(String title) {
-		this.title = title;
-	}
-
-	public Community(int id, String title, String content, String writerId, Date regDate,
-			List<CommunityComment> communityComments, List<CommunityImg> communityImgs, CommunityType communityType,
-			Member member) {
+	public Community(int id, String title, String content, Date regDate, String memberId) {
+		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
-		this.writerId = writerId;
 		this.regDate = regDate;
+		this.memberId = memberId;
+	}
+
+	public Community(int id, String title, String content, int hit, Date regDate, String communityTypeName,
+			String memberId, List<CommunityComment> communityComments, List<CommunityImg> communityImgs,
+			CommunityType communityType, Member member) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.hit = hit;
+		this.regDate = regDate;
+		this.communityTypeName = communityTypeName;
+		this.memberId = memberId;
 		this.communityComments = communityComments;
 		this.communityImgs = communityImgs;
 		this.communityType = communityType;
@@ -82,12 +96,28 @@ public class Community {
 		this.content = content;
 	}
 
-	public String getWriterId() {
-		return writerId;
+	public int getHit() {
+		return hit;
 	}
 
-	public void setWriterId(String writerId) {
-		this.writerId = writerId;
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+
+	public String getCommunityTypeName() {
+		return communityTypeName;
+	}
+
+	public void setCommunityTypeName(String communityTypeName) {
+		this.communityTypeName = communityTypeName;
+	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 	public Date getRegDate() {
@@ -132,9 +162,12 @@ public class Community {
 
 	@Override
 	public String toString() {
-		return "Community [id=" + id + ", title=" + title + ", content=" + content + ", writerId=" + writerId + ", regDate=" + regDate + ", communityComments=" + communityComments + ", communityImgs="
-				+ communityImgs + ", communityType=" + communityType + ", member=" + member + "]";
+		return "Community [id=" + id + ", title=" + title + ", content=" + content + ", hit=" + hit + ", regDate="
+				+ regDate + ", communityTypeName=" + communityTypeName + ", memberId=" + memberId
+				+ ", communityComments=" + communityComments + ", communityImgs=" + communityImgs + ", communityType="
+				+ communityType + ", member=" + member + "]";
 	}
+
 	
 	
 }

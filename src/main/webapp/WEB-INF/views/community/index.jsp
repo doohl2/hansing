@@ -1,8 +1,10 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var = "now" value = "<%=new java.util.Date()%>"  />
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
-
+<fmt:setLocale value="en_US" scope="session"/>
 <main role="main-inner-wrapper" class="container padding-top-ninety">
 
 <div class="tool-box-frame">
@@ -67,341 +69,36 @@
 						<!-- /LIST HEADER -->
 					</thead>
 					<tbody>
-						<!-- NOTICE -->
-						<!-- /NOTICE -->
-
-
 						<!-- LIST -->
+						
+							<c:forEach var="cm" items="${communities}">
 						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
+								<td class="title column-title">${cm.title}<a href="#" class="title_text"></a> 
+									<a href="#" class="reply_num xe-hidden-xs" title="Replies">${cm.hit}</a> 
+										<span class="bd_ico_new"><i class="xi-new"></i>
+											<span class="xe-sr-only">new</span>
+										</span>
+										<div class="more_info xe-visible-xs">
+												<a href="#" class="mb_author">${cm.memberId}</a>
+											<span class="mb_time" title=""><i class="xi-time"></i> 
+											<span id="now" data-xe-timeago="">
+											<fmt:formatDate pattern ="m" value="${now}"/>
+									
+											분 전
+											</span></span> <span class="mb_readnum">
+     							    <i class="xi-eye"></i> ${cm.hit}</span>
+									</div>
+								</td>
+									
+								<td class="author xe-hidden-xs"><a href="#"">${cm.memberId}</a></td>
+								<td class="xe-hidden-xs column-assent_count">0</td>
+								<td class="read_num xe-hidden-xs">${cm.hit}</td>
+								<td class="time xe-hidden-xs column-created_at">
+								<fmt:formatDate pattern="mm" value="${cm.regDate}"/>
+								분 전</td>
+								
 						</tr>
-
-
-
-						<!-- 						가려두자 -->
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-						<tr>
-							<td class="title column-title"><a href="#"
-								class="title_text">게시글1</a> <a href="#"
-								class="reply_num xe-hidden-xs" title="Replies">2</a> <span
-								class="bd_ico_new"><i class="xi-new"></i><span
-									class="xe-sr-only">new</span></span>
-								<div class="more_info xe-visible-xs">
-									<a href="#" class="mb_author">admin</a> <span class="mb_time"
-										title="2018-04-17 00:57:36"><i class="xi-time"></i> <span
-										data-xe-timeago="2018-04-17 00:57:36">8분 전</span></span> <span
-										class="mb_readnum"><i class="xi-eye"></i> 1</span>
-								</div></td>
-							<td class="author xe-hidden-xs"><a href="#"">admin</a></td>
-							<td class="xe-hidden-xs column-assent_count">0</td>
-							<td class="read_num xe-hidden-xs">1</td>
-							<td class="time xe-hidden-xs column-created_at">8분 전</td>
-						</tr>
-
-						<!-- 						가려두자 -->
-
+							</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -412,7 +109,13 @@
 </div>
 
 </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(function(){
 
+	
+});
+</script>
 <script>
 	function myFunction() {
 		var x = document.getElementById("search-toggle");
