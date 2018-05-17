@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.hansing.entity.Community;
+import com.hansing.entity.CommunityView;
 
 @Repository
 public class HbCommunityDao {
@@ -22,16 +23,16 @@ public class HbCommunityDao {
 		return 1;
 	}
 	
-	public List<Community> getList(Integer page){
+	public List<CommunityView> getList(Integer page){
 		Session session = sessionFactory.getCurrentSession();
-		Query<Community> query = session.createQuery("from Community",Community.class);
-		List<Community> list = query.getResultList();
+		Query<CommunityView> query = session.createQuery("from CommunityView order by regDate desc",CommunityView.class);
+		List<CommunityView> list = query.getResultList();
 		return list;
 	}
 	
-	public Community get(Integer id) {
+	public CommunityView getCommunity(Integer id) {
 		Session session = sessionFactory.getCurrentSession();
-		Community community = session.get(Community.class, id);
+		CommunityView community = session.get(CommunityView.class, id);
 		return community;
 	}
 		

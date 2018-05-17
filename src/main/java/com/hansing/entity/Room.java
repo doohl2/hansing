@@ -34,33 +34,36 @@ public class Room {
 	private String gender;
 	private int minDuration; 
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="memberId")
 	@Transient
 	private Member member;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="directionName")
 	@Transient
 	private Direction direction;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="roomSizeName")
 	@Transient
 	private RoomSize roomSize;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="roomTypeName")
 	@Transient
 	private RoomType roomType;
 	
-//	@OneToMany(mappedBy="room",	cascade=CascadeType.ALL)
 	@Transient
 	private List<RoomDetailImg> roomDetailImgs;
 	
 	public Room() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public Room(int id, String title, String content, Date regDate) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.regDate = regDate;
+	}
+
+
 
 	public Room(int price, String mainImg) {
 		super();

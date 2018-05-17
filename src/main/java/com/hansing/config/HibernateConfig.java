@@ -31,7 +31,7 @@ public class HibernateConfig {
 //		dataSource.setJdbcUrl("	jdbc:mysql://vaio.notepubs.com/notepubsdb?serverTimezone=UTC&autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8");
 //		dataSource.setUser("notepubs");
 //		dataSource.setPassword("cclass");
-		dataSource.setJdbcUrl("jdbc:mysql://220.127.142.18/hansing?serverTimezone=UTC&autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8");
+		dataSource.setJdbcUrl("jdbc:mysql://211.202.10.16/hansing?serverTimezone=UTC&autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8");
 		dataSource.setUser("doohl2");
 		dataSource.setPassword("102qhdks!");
 		dataSource.setMinPoolSize(5);

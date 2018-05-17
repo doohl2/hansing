@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hansing.entity.CommunityView;
 import com.hansing.entity.Room;
 import com.hansing.service.RoomService;
 
@@ -28,9 +29,12 @@ public class RoomController {
 		return "room.index";
 	}
 	
-	@GetMapping("detail")
-	public String detail() {
-		
+	@GetMapping("${id}")
+	public String detail(
+			@PathVariable("id") Integer id
+			, Model model) {
+		Room room = service.getRoom(id);		
+		model.addAttribute("room",room);
 		return "room.detail";
 	}
 	

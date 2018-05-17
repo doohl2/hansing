@@ -68,7 +68,7 @@
 				<c:if test="${status.index%2==0}">
 			<li>
 			<section class="blog-content">
-				 <a href="detail"> 
+				 <a href="${room.id}"> 
 			<figure>
 				<img src="${ctx}/resources/images/${room.mainImg}" alt="" class="img-responsive" />
 			</figure>
@@ -76,32 +76,6 @@
 				 </section></li>
 				 </c:if>
 				 </c:forEach>
-				
-		<%-- 	<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
-			<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
-			<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
-			<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
-			<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li> --%>
 		</ul>
 	</div>
 	
@@ -123,7 +97,7 @@
 				<c:if test="${status.index%2!=0}">
 			<li>
 			<section class="blog-content">
-				 <a href="detail"> 
+				 <a href="${room.id}"> 
 			<figure>
 				<img src="${ctx}/resources/images/${room.mainImg}" alt="" class="img-responsive" />
 			</figure>
@@ -131,33 +105,6 @@
 				 </section></li>
 				 </c:if>
 				 </c:forEach>
-				
-				
-		<%-- 	<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
-			<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
-			<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
-			<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li>
-			<li><section class="blog-content"> <a
-					href="blog-details.html"> <figure> <img
-						src="${ctx}/resources/images/p1.jpg" alt="" class="img-responsive" />
-					</figure>
-				</a> <article> #룸렌트#콘도#홀랜드빌리지#1인실#1명#커먼룸#$500 </article> </section></li> --%>
 		</ul>
 	</div>
 </div>

@@ -23,13 +23,13 @@ public class RoomService {
 	}
 	
 	@Transactional
-	public Room get(Integer id) {
+	public Room getRoom(Integer id) {
 		Room room = roomDao.get(id);
 		return room;	
 	}
 	
 	@Transactional
-	public int insert(Room room) {
+	public int insertRoom(Room room) {
 		int result = roomDao.insert(room);
 		return result;
 	}
