@@ -32,7 +32,7 @@ public class CommunityController {
 		return "community.index";
 	}
 	
-	@GetMapping("${id}/detail")
+	@GetMapping("{id}")
 	public String detail(
 			@PathVariable("id") Integer id
 			, Model model) {

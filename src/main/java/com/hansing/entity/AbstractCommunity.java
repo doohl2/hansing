@@ -19,7 +19,7 @@ import javax.persistence.Transient;
 import org.springframework.lang.Nullable;
 
 @MappedSuperclass
-public class AbstractCommunity {
+public abstract class AbstractCommunity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -36,8 +36,6 @@ public class AbstractCommunity {
 	
 	@Transient
 	private List<CommunityComment> communityComments;
-	@Transient
-	private List<CommunityImg> communityImgs;
 	@Transient
 	private CommunityType communityType;
 	@Transient
@@ -56,9 +54,10 @@ public class AbstractCommunity {
 		this.memberId = memberId;
 	}
 
-	public AbstractCommunity(int id, String title, String content, int hit, Date regDate, String communityTypeName,
-			String memberId, List<CommunityComment> communityComments, List<CommunityImg> communityImgs,
-			CommunityType communityType, Member member) {
+
+
+	public AbstractCommunity(int id, String title, String content, Integer hit, Date regDate, String communityTypeName,
+			String memberId, List<CommunityComment> communityComments, CommunityType communityType, Member member) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -68,7 +67,6 @@ public class AbstractCommunity {
 		this.communityTypeName = communityTypeName;
 		this.memberId = memberId;
 		this.communityComments = communityComments;
-		this.communityImgs = communityImgs;
 		this.communityType = communityType;
 		this.member = member;
 	}
@@ -137,14 +135,6 @@ public class AbstractCommunity {
 		this.communityComments = communityComments;
 	}
 
-	public List<CommunityImg> getCommunityImgs() {
-		return communityImgs;
-	}
-
-	public void setCommunityImgs(List<CommunityImg> communityImgs) {
-		this.communityImgs = communityImgs;
-	}
-
 	public CommunityType getCommunityType() {
 		return communityType;
 	}
@@ -161,14 +151,21 @@ public class AbstractCommunity {
 		this.member = member;
 	}
 
-	@Override
-	public String toString() {
-		return "Community [id=" + id + ", title=" + title + ", content=" + content + ", hit=" + hit + ", regDate="
-				+ regDate + ", communityTypeName=" + communityTypeName + ", memberId=" + memberId
-				+ ", communityComments=" + communityComments + ", communityImgs=" + communityImgs + ", communityType="
-				+ communityType + ", member=" + member + "]";
+	public void setHit(Integer hit) {
+		this.hit = hit;
 	}
 
+	@Override
+	public String toString() {
+		return "AbstractCommunity [id=" + id + ", title=" + title + ", content=" + content + ", hit=" + hit
+				+ ", regDate=" + regDate + ", communityTypeName=" + communityTypeName + ", memberId=" + memberId
+				+ ", communityComments=" + communityComments + ", communityType=" + communityType + ", member=" + member
+				+ "]";
+	}
+
+
+
+	
 	
 	
 }

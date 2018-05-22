@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.hansing.entity.Room;
+import com.hansing.entity.RoomView;
 
 @Repository
 public class HbRoomDao {
@@ -18,16 +19,16 @@ public class HbRoomDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public List<Room> getList(Integer page){
+	public List<RoomView> getList(Integer page){
 		Session session = sessionFactory.getCurrentSession();
-		Query<Room> query = session.createQuery("from Room",Room.class);
-		List<Room> list = query.getResultList();
+		Query<RoomView> query = session.createQuery("from RoomView",RoomView.class);
+		List<RoomView> list = query.getResultList();
 		return list;
 	}
 	
-	public Room get(Integer id) {
+	public RoomView get(Integer roomId) {
 		Session session = sessionFactory.getCurrentSession();
-		Room room = session.get(Room.class, id);
+		RoomView room = session.get(RoomView.class, roomId);
 		return room;
 	}
 	

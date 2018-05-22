@@ -13,7 +13,6 @@ public class MarketType {
 	@Id
 	private String name;
 
-//	@OneToMany(mappedBy="marketType",	cascade=CascadeType.ALL)
 	@Transient
 	private List<Market> markets;
 	

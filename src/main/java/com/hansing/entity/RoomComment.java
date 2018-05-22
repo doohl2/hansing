@@ -1,128 +1,130 @@
 package com.hansing.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 @Entity
-public class CommunityComment {
-
+public class RoomComment implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@Column(insertable=false)
 	private Date regDate;
 	private String content;
-	private int communityId;
+	private boolean secret;
+	private int roomId;
 	private String memberId;
 	
 	@Transient
-	private Community community;
-	
+	private Room room;
 	@Transient
 	private Member member;
 	
-	
-	public CommunityComment() {
+	public RoomComment() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	public RoomComment(int roomId) {
+		super();
+		this.roomId = roomId;
 	}
 
 
-	public CommunityComment(int id, Date regDate, String content, int communityId, String memberId, Community community,
+	public RoomComment(int roomId, String memberId) {
+		super();
+		this.roomId = roomId;
+		this.memberId = memberId;
+	}
+
+	public RoomComment(int id, Date regDate, String content, boolean secret, int roomId, String memberId, Room room,
 			Member member) {
 		super();
 		this.id = id;
 		this.regDate = regDate;
 		this.content = content;
-		this.communityId = communityId;
+		this.secret = secret;
+		this.roomId = roomId;
 		this.memberId = memberId;
-		this.community = community;
+		this.room = room;
 		this.member = member;
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public Date getRegDate() {
 		return regDate;
 	}
 
-
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
-
 
 	public String getContent() {
 		return content;
 	}
 
-
 	public void setContent(String content) {
 		this.content = content;
 	}
 
-
-	public int getCommunityId() {
-		return communityId;
+	public boolean isSecret() {
+		return secret;
 	}
 
-
-	public void setCommunityId(int communityId) {
-		this.communityId = communityId;
+	public void setSecret(boolean secret) {
+		this.secret = secret;
 	}
 
+	public int getRoomId() {
+		return roomId;
+	}
+
+	public void setRoomId(int roomId) {
+		this.roomId = roomId;
+	}
 
 	public String getMemberId() {
 		return memberId;
 	}
 
-
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 
-
-	public Community getCommunity() {
-		return community;
+	public Room getRoom() {
+		return room;
 	}
 
-
-	public void setCommunity(Community community) {
-		this.community = community;
+	public void setRoom(Room room) {
+		this.room = room;
 	}
-
 
 	public Member getMember() {
 		return member;
 	}
 
-
 	public void setMember(Member member) {
 		this.member = member;
 	}
 
-
 	@Override
 	public String toString() {
-		return "CommunityComment [id=" + id + ", regDate=" + regDate + ", content=" + content + ", communityId="
-				+ communityId + ", memberId=" + memberId + ", community=" + community + ", member=" + member + "]";
+		return "RoomComment [id=" + id + ", regDate=" + regDate + ", content=" + content + ", secret=" + secret
+				+ ", roomId=" + roomId + ", memberId=" + memberId + ", room=" + room + ", member=" + member + "]";
 	}
+	
 
 }

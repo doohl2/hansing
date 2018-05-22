@@ -27,18 +27,15 @@ public class Job {
 	private String title;
 	private boolean parmanentPosition;
 	private int hit;
+	private String jobTypeName;
+	private String memberId;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="jobTypeName")
 	@Transient
 	private JobType jobType;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="memberId")
 	@Transient
 	private Member member;
 	
-//	@OneToMany(mappedBy="job",	cascade=CascadeType.ALL)
 	@Transient
 	private List<JobAttachment> jobAttachment;
 	
@@ -47,7 +44,8 @@ public class Job {
 	}
 
 	public Job(int id, String name, String email, String contactNo, int career, String educationalBg, String price,
-			String title, boolean parmanentPosition, int hit, List<JobAttachment> jobAttachment) {
+			String title, boolean parmanentPosition, int hit, String jobTypeName, String memberId, JobType jobType,
+			Member member, List<JobAttachment> jobAttachment) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -59,6 +57,10 @@ public class Job {
 		this.title = title;
 		this.parmanentPosition = parmanentPosition;
 		this.hit = hit;
+		this.jobTypeName = jobTypeName;
+		this.memberId = memberId;
+		this.jobType = jobType;
+		this.member = member;
 		this.jobAttachment = jobAttachment;
 	}
 
@@ -142,6 +144,38 @@ public class Job {
 		this.hit = hit;
 	}
 
+	public String getJobTypeName() {
+		return jobTypeName;
+	}
+
+	public void setJobTypeName(String jobTypeName) {
+		this.jobTypeName = jobTypeName;
+	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
+	public JobType getJobType() {
+		return jobType;
+	}
+
+	public void setJobType(JobType jobType) {
+		this.jobType = jobType;
+	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
 	public List<JobAttachment> getJobAttachment() {
 		return jobAttachment;
 	}
@@ -154,7 +188,10 @@ public class Job {
 	public String toString() {
 		return "Job [id=" + id + ", name=" + name + ", email=" + email + ", contactNo=" + contactNo + ", career="
 				+ career + ", educationalBg=" + educationalBg + ", price=" + price + ", title=" + title
-				+ ", parmanentPosition=" + parmanentPosition + ", hit=" + hit + ", jobAttachment=" + jobAttachment + "]";
+				+ ", parmanentPosition=" + parmanentPosition + ", hit=" + hit + ", jobTypeName=" + jobTypeName
+				+ ", memberId=" + memberId + ", jobType=" + jobType + ", member=" + member + ", jobAttachment="
+				+ jobAttachment + "]";
 	}
+
 
 }

@@ -1147,3 +1147,18 @@ article[role="pge-title-content"].contact-header p a:hover {
 header > .container > h1 > a {
 	font-weight:bold;
 }
+
+.submit-button{
+	padding: 0 36px;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 21px;
+    line-height: 60px;
+    color: #FFF;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    outline: none;
+    background-color: #fb5353;
+    margin-top: 50px;
+}

@@ -13,7 +13,6 @@ public class RoomType {
 	@Id
 	private String name;
 
-//	@OneToMany(mappedBy="roomType",	cascade=CascadeType.ALL)
 	@Transient
 	private List<Room> rooms;
 	

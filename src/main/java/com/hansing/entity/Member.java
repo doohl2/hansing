@@ -16,25 +16,18 @@ public class Member {
 	private String name;
 	private String nickname;
 	
-//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
 	@Transient
 	private List<Room> rooms;
-//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
 	@Transient
 	private List<Job> jobs;
-//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
 	@Transient
 	private List<Market> markets;
-//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
 	@Transient
 	private List<MarketComment> marketComments;
-//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
 	@Transient
 	private List<CommunityComment> communityComments;
-//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
 	@Transient
 	private List<Community> communities;
-//	@OneToMany(mappedBy="member",	cascade=CascadeType.ALL)
 	@Transient
 	private List<Store> stores;
 	public Member() {

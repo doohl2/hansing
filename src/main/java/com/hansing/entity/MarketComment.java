@@ -17,14 +17,12 @@ public class MarketComment {
 	@Column(insertable=false)
 	private Date regDate;
 	private String content;
+	private int marketId;
+	private String memberId;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="marketId")
 	@Transient
 	private Market market;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="memberId")
 	@Transient
 	private Member member;
 	
@@ -32,11 +30,14 @@ public class MarketComment {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MarketComment(int id, Date regDate, String content, Market market, Member member) {
+	public MarketComment(int id, Date regDate, String content, int marketId, String memberId, Market market,
+			Member member) {
 		super();
 		this.id = id;
 		this.regDate = regDate;
 		this.content = content;
+		this.marketId = marketId;
+		this.memberId = memberId;
 		this.market = market;
 		this.member = member;
 	}
@@ -65,6 +66,21 @@ public class MarketComment {
 		this.content = content;
 	}
 
+	public int getMarketId() {
+		return marketId;
+	}
+
+	public void setMarketId(int marketId) {
+		this.marketId = marketId;
+	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
 
 	public Market getMarket() {
 		return market;
@@ -84,9 +100,8 @@ public class MarketComment {
 
 	@Override
 	public String toString() {
-		return "MarketComment [id=" + id + ", regDate=" + regDate + ", content=" + content + ", market=" + market
-				+ ", member=" + member + "]";
+		return "MarketComment [id=" + id + ", regDate=" + regDate + ", content=" + content + ", marketId=" + marketId
+				+ ", memberId=" + memberId + ", market=" + market + ", member=" + member + "]";
 	}
 
-	
 }

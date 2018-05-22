@@ -27,32 +27,28 @@ public class Market {
 	private String contactNo;
 	private String mainImg;
 	private int hit;
+	private String marketTypeName;
+	private String memberId;
 	
-//	@OneToMany(mappedBy="market",	cascade=CascadeType.ALL)
 	@Transient
 	private List<MarketComment> marketComments;
 	
-//	@OneToMany(mappedBy="market",	cascade=CascadeType.ALL)
 	@Transient
 	private List<MarketImg> marketImgs;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="marketTypeName")
 	@Transient
 	private MarketType marketType;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="memberId")
 	@Transient
 	private Member member;
 	
 	public Market() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Market(int id, String title, String content, Date regDate, int price, String contactNo, String mainImg,
-			int hit, List<MarketComment> marketComments, List<MarketImg> marketImgs, MarketType marketType,
-			Member member) {
+			int hit, String marketTypeName, String memberId, List<MarketComment> marketComments,
+			List<MarketImg> marketImgs, MarketType marketType, Member member) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -62,6 +58,8 @@ public class Market {
 		this.contactNo = contactNo;
 		this.mainImg = mainImg;
 		this.hit = hit;
+		this.marketTypeName = marketTypeName;
+		this.memberId = memberId;
 		this.marketComments = marketComments;
 		this.marketImgs = marketImgs;
 		this.marketType = marketType;
@@ -132,20 +130,20 @@ public class Market {
 		this.hit = hit;
 	}
 
-	public MarketType getMarketType() {
-		return marketType;
+	public String getMarketTypeName() {
+		return marketTypeName;
 	}
 
-	public void setMarketType(MarketType marketType) {
-		this.marketType = marketType;
+	public void setMarketTypeName(String marketTypeName) {
+		this.marketTypeName = marketTypeName;
 	}
 
-	public Member getMember() {
-		return member;
+	public String getMemberId() {
+		return memberId;
 	}
 
-	public void setMember(Member member) {
-		this.member = member;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
 	public List<MarketComment> getMarketComments() {
@@ -164,13 +162,29 @@ public class Market {
 		this.marketImgs = marketImgs;
 	}
 
+	public MarketType getMarketType() {
+		return marketType;
+	}
+
+	public void setMarketType(MarketType marketType) {
+		this.marketType = marketType;
+	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+
 	@Override
 	public String toString() {
 		return "Market [id=" + id + ", title=" + title + ", content=" + content + ", regDate=" + regDate + ", price="
-				+ price + ", contactNo=" + contactNo + ", mainImg=" + mainImg + ", hit=" + hit + ", marketComments="
-				+ marketComments + ", marketImgs=" + marketImgs + ", marketType=" + marketType + ", member=" + member
-				+ "]";
+				+ price + ", contactNo=" + contactNo + ", mainImg=" + mainImg + ", hit=" + hit + ", marketTypeName="
+				+ marketTypeName + ", memberId=" + memberId + ", marketComments=" + marketComments + ", marketImgs="
+				+ marketImgs + ", marketType=" + marketType + ", member=" + member + "]";
 	}
-
+	
 	
 }

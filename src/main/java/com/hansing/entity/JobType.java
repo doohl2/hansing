@@ -13,7 +13,6 @@ public class JobType {
 	@Id
 	private String name;
 	
-//	@OneToMany(mappedBy="jobType", cascade=CascadeType.ALL)
 	@Transient
 	private List<Job> jobs;
 	

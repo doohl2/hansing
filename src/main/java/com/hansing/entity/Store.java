@@ -19,18 +19,15 @@ public class Store {
 	private String type;
 	private String intro;
 	private boolean adv;
+	private String storeTypeName;
+	private String memberId;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="storeTypeName")
 	@Transient
 	private StoreType storeType;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="memberId")
 	@Transient
 	private Member member;
 	
-//	@OneToMany(mappedBy="store",	cascade=CascadeType.ALL)
 	@Transient
 	private List<StoreImg> storeImgs;
 	
@@ -38,8 +35,8 @@ public class Store {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Store(int id, String name, String siteUrl, String type, String intro, boolean adv, StoreType storeType,
-			Member member, List<StoreImg> storeImgs) {
+	public Store(int id, String name, String siteUrl, String type, String intro, boolean adv, String storeTypeName,
+			String memberId, StoreType storeType, Member member, List<StoreImg> storeImgs) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -47,6 +44,8 @@ public class Store {
 		this.type = type;
 		this.intro = intro;
 		this.adv = adv;
+		this.storeTypeName = storeTypeName;
+		this.memberId = memberId;
 		this.storeType = storeType;
 		this.member = member;
 		this.storeImgs = storeImgs;
@@ -100,6 +99,22 @@ public class Store {
 		this.adv = adv;
 	}
 
+	public String getStoreTypeName() {
+		return storeTypeName;
+	}
+
+	public void setStoreTypeName(String storeTypeName) {
+		this.storeTypeName = storeTypeName;
+	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
 	public StoreType getStoreType() {
 		return storeType;
 	}
@@ -127,7 +142,8 @@ public class Store {
 	@Override
 	public String toString() {
 		return "Store [id=" + id + ", name=" + name + ", siteUrl=" + siteUrl + ", type=" + type + ", intro=" + intro
-				+ ", adv=" + adv + ", storeType=" + storeType + ", member=" + member + ", storeImgs=" + storeImgs + "]";
+				+ ", adv=" + adv + ", storeTypeName=" + storeTypeName + ", memberId=" + memberId + ", storeType="
+				+ storeType + ", member=" + member + ", storeImgs=" + storeImgs + "]";
 	}
 
 }

@@ -7,30 +7,51 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hansing.dao.hb.HbRoomCommentDao;
 import com.hansing.dao.hb.HbRoomDao;
 import com.hansing.entity.Room;
+import com.hansing.entity.RoomComment;
+import com.hansing.entity.RoomView;
 
 @Service
 public class RoomService {
 	
 	@Autowired
 	private HbRoomDao roomDao;
+	@Autowired
+	private HbRoomCommentDao roomCommentDao;
 	
 	@Transactional
-	public List<Room> getList(Integer page){
-		List<Room> list = roomDao.getList(page);
-		return list;
+	public List<RoomView> getList(Integer page){
+		List<RoomView> result = roomDao.getList(page);
+		return result;
 	}
 	
 	@Transactional
-	public Room getRoom(Integer id) {
-		Room room = roomDao.get(id);
+	public RoomView getRoom(Integer id) {
+		RoomView room = roomDao.get(id);
+//		List<RoomComment> comments = roomCommentDao.getListByRoom(id);
+//		room.setComments(comments);
 		return room;	
 	}
 	
 	@Transactional
 	public int insertRoom(Room room) {
 		int result = roomDao.insert(room);
+		return result;
+	}
+	
+	@Transactional
+	public int addComment(RoomComment comment) {
+		int result = roomCommentDao.insert(comment);
+		return result;
+	}
+
+	@Transactional
+	public List<RoomComment> getRoomCommentByRoom(Integer roomId) {
+		List<RoomComment> result = roomCommentDao.getListByRoom(roomId);
+		for(RoomComment r : result)
+			r.setRoom(null);
 		return result;
 	}
 	

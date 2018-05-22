@@ -74,7 +74,7 @@
 						
 							<c:forEach var="cm" items="${communities}">
 						<tr>
-								<td class="title column-title"><a href="#" class="title_text">${cm.title}</a> 
+								<td class="title column-title"><a href="${cm.id}" class="title_text">${cm.title}</a> 
 									<a href="#" class="reply_num xe-hidden-xs" title="Replies">${cm.hit}</a> 
 										<span class="bd_ico_new"><i class="xi-new"></i>
 											<span class="xe-sr-only">new</span>

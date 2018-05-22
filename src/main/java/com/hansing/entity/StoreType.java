@@ -13,7 +13,6 @@ public class StoreType {
 	@Id
 	private String name;
 	
-//	@OneToMany(mappedBy="storeType",	cascade=CascadeType.ALL)
 	@Transient
 	private List<Store> stores;
 	

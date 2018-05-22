@@ -14,7 +14,6 @@ public class CommunityType {
 	@Id
 	private String name;
 
-//	@OneToMany(mappedBy="communityType",cascade=CascadeType.ALL)
 	@Transient	
 	private List<Community> communities;
 	

@@ -11,9 +11,8 @@ import javax.persistence.Transient;
 public class RoomDetailImg {
 	@Id
 	private String name;
+	private int roomId;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="roomId")
 	@Transient
 	private Room room;
 
@@ -21,15 +20,11 @@ public class RoomDetailImg {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RoomDetailImg(String name, Room room) {
+	public RoomDetailImg(String name, int roomId, Room room) {
 		super();
 		this.name = name;
+		this.roomId = roomId;
 		this.room = room;
-	}
-
-	public RoomDetailImg(String name) {
-		super();
-		this.name = name;
 	}
 
 	public String getName() {
@@ -38,6 +33,14 @@ public class RoomDetailImg {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getRoomId() {
+		return roomId;
+	}
+
+	public void setRoomId(int roomId) {
+		this.roomId = roomId;
 	}
 
 	public Room getRoom() {
@@ -50,8 +53,7 @@ public class RoomDetailImg {
 
 	@Override
 	public String toString() {
-		return "RoomDetailImg [name=" + name + ", room=" + room + "]";
+		return "RoomDetailImg [name=" + name + ", roomId=" + roomId + ", room=" + room + "]";
 	}
-
 
 }

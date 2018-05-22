@@ -11,9 +11,8 @@ import javax.persistence.Transient;
 public class Location {
 	@Id
 	private String name;
+	private String directionName;
 
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="directionName")
 	@Transient
 	private Direction direction;
 
@@ -21,9 +20,11 @@ public class Location {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Location(String name) {
+	public Location(String name, String directionName, Direction direction) {
 		super();
 		this.name = name;
+		this.directionName = directionName;
+		this.direction = direction;
 	}
 
 	public String getName() {
@@ -34,9 +35,25 @@ public class Location {
 		this.name = name;
 	}
 
+	public String getDirectionName() {
+		return directionName;
+	}
+
+	public void setDirectionName(String directionName) {
+		this.directionName = directionName;
+	}
+
+	public Direction getDirection() {
+		return direction;
+	}
+
+	public void setDirection(Direction direction) {
+		this.direction = direction;
+	}
+
 	@Override
 	public String toString() {
-		return "Location [name=" + name + "]";
+		return "Location [name=" + name + ", directionName=" + directionName + ", direction=" + direction + "]";
 	}
-	
+
 }

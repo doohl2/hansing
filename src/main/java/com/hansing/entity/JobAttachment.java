@@ -13,9 +13,8 @@ public class JobAttachment {
 
 	@Id
 	private String name;
+	private int jobId;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="jobId")
 	@Transient
 	private Job job;
 	
@@ -23,9 +22,11 @@ public class JobAttachment {
 		// TODO Auto-generated constructor stub
 	}
 
-	public JobAttachment(String name) {
+	public JobAttachment(String name, int jobId, Job job) {
 		super();
 		this.name = name;
+		this.jobId = jobId;
+		this.job = job;
 	}
 
 	public String getName() {
@@ -36,12 +37,25 @@ public class JobAttachment {
 		this.name = name;
 	}
 
-	@Override
-	public String toString() {
-		return "JobAttachment [name=" + name + "]";
+	public int getJobId() {
+		return jobId;
 	}
 
+	public void setJobId(int jobId) {
+		this.jobId = jobId;
+	}
 
+	public Job getJob() {
+		return job;
+	}
 
-	
+	public void setJob(Job job) {
+		this.job = job;
+	}
+
+	@Override
+	public String toString() {
+		return "JobAttachment [name=" + name + ", jobId=" + jobId + ", job=" + job + "]";
+	}
+
 }

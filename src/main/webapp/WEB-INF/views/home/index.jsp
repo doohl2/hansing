@@ -9,7 +9,7 @@
 <div class="row">
 	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
 		<article role="pge-title-content">
-			<header>
+			<header class="show-only-pc">
 				<h2>
 					<span>HanKook</span> <span> Singapore</span> Online Community
 					Service

@@ -12,9 +12,8 @@ import javax.persistence.Transient;
 public class MarketImg {
 	@Id
 	private String name;
+	private int marketId;
 	
-//	@ManyToOne(cascade={CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-//	@JoinColumn(name="marketId")
 	@Transient
 	private Market market;
 
@@ -22,9 +21,10 @@ public class MarketImg {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MarketImg(String name, Market market) {
+	public MarketImg(String name, int marketId, Market market) {
 		super();
 		this.name = name;
+		this.marketId = marketId;
 		this.market = market;
 	}
 
@@ -34,6 +34,14 @@ public class MarketImg {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getMarketId() {
+		return marketId;
+	}
+
+	public void setMarketId(int marketId) {
+		this.marketId = marketId;
 	}
 
 	public Market getMarket() {
@@ -46,7 +54,7 @@ public class MarketImg {
 
 	@Override
 	public String toString() {
-		return "MarketImg [name=" + name + ", market=" + market + "]";
+		return "MarketImg [name=" + name + ", marketId=" + marketId + ", market=" + market + "]";
 	}
 
 }

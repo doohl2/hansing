@@ -14,11 +14,9 @@ public class Direction {
 	@Id
 	private String name;
 	
-//	@OneToMany(mappedBy="direction",cascade=CascadeType.ALL)
 	@Transient
 	private List<Location> locations;
 	
-//	@OneToMany(mappedBy="direction",cascade=CascadeType.ALL)
 	@Transient
 	private List<Room> rooms;
 	
