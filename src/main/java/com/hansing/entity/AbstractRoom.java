@@ -35,7 +35,7 @@ public abstract class AbstractRoom {
 	private String roomTypeName;
 	
 	@Transient
-	private List<RoomComment> comments;
+	private List<RoomCommentView> comments;
 	
 	@Transient
 	private Member member;
@@ -74,7 +74,7 @@ public abstract class AbstractRoom {
 			String subImg, boolean aircon, boolean pub, boolean cook, Date dateOfStart, String gender, int minDuration,
 			String memberId, String directionName, String roomSizeName, String roomTypeName, Member member,
 			Direction direction, RoomSize roomSize, RoomType roomType, List<RoomDetailImg> roomDetailImgs,
-			List<RoomComment> comments) {
+			List<RoomCommentView> comments) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -286,11 +286,11 @@ public abstract class AbstractRoom {
 		this.roomDetailImgs = roomDetailImgs;
 	}
 
-	public List<RoomComment> getComments() {
+	public List<RoomCommentView> getComments() {
 		return comments;
 	}
 
-	public void setComments(List<RoomComment> comments) {
+	public void setComments(List<RoomCommentView> comments) {
 		this.comments = comments;
 	}
 

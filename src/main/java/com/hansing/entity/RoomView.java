@@ -28,5 +28,6 @@ public class RoomView extends AbstractRoom{
 	public String toString() {
 		return "RoomView [commentCount=" + commentCount + "]";
 	}
+
 		
 }

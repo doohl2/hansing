@@ -50,16 +50,38 @@
              	
               	  <div class="comments-pan">
                 	<h3>${room.commentCount}개의 댓글이 있습니다</h3>
-                    <ul class="comments-reply">
+
 	                    <c:forEach var="rc" items="${room.comments}">
-	                    	<li>
-	                          	<section>
-	                                <h4>eotrmf <button class="btn btn-default btn-add" style="color:red">답변</button></h4>
-	                                <div class="date-pan">${rc.regDate} </div>
-	                              		${rc.content }
-	                            </section>
-	                       </li>
-	                    </c:forEach>
+		                    <template id="note-comment-template">
+		                    	<li>
+		                          	<section>
+		                                <h4>
+		                                <span id="note-detail-nickName">eotrmf </span> 
+		                                <button class="btn btn-default btn-add" style="color:red">
+		                                </button>
+		                                </h4>
+		                                <div class="date-pan" id="note-detail-regDate"></div>
+		                              	<span id="note-detail-content"></span>
+		                            </section>
+		                       </li>
+		                       </template>
+	                         </c:forEach>
+	                         
+	           			  <ul class="comments-reply">
+	                        <c:forEach var="rc" items="${room.comments}">
+		                       	 <li>
+		                          	<section>
+		                                <h4>
+		                                <span id="note-detail-nickname">${rc.nickname} </span> 
+		                                <button class="btn btn-default btn-add" style="color:red">
+	<!-- 	                                답변 -->
+		                                </button>
+		                                </h4>
+		                                <div class="date-pan">${rc.regDate}</div>
+		                              	<span>${rc.content}</span>
+		                            </section>
+		                       </li>
+	                	    </c:forEach>
                     </ul>
                     
                         	<form action="${room.id}/comment/reg" method="post">                            
@@ -75,27 +97,27 @@
 									  <span class="slider" style="top:10px; bottom:-10px;"></span>
 									</label>
 									</span>
-								</div>			
+								</div>
 					
-								<c:if test="${empty room.memberId}">
+								<security:authorize access="!isAuthenticated()">
 									<div class="row">
 			                            <div class="clearfix"></div>
-										<a href="../member/login"><input type="text" disabled="disabled" placeholder="로그인 후 이용가능합니다."> </a>		                        </div>					
-								</c:if>
+										<a href="../member/login">
+										<input type="text" disabled="disabled" placeholder="로그인 후 이용가능합니다. 클릭!"> </a>		                    
+								    </div>					
+								</security:authorize>
 								
-								<c:if test="${not empty room.memberId}">
-								 <security:authorize access="hasRole('ROLE_ALL')">
+								<security:authorize access="isAuthenticated()">
 			                      <div class="row">
 			                                 <div class="clearfix"></div>
 			                                 <div class="col-xs-12 col-sm-12 col-md-12">
 			                                 	<textarea placeholder="댓글" name="content"></textarea>
 			                                </div>
 			                                <div class="text-center">
-			                                	<input type="submit" value="댓글 달기" class="submit-button"/>
-			                                </div>
+			                                	<input type="submit" value="댓글 달기" class="submit-button" />
+			                                </div> 
 			                        </div>
-			                  	 </security:authorize>
-			                	 </c:if>
+			                	 </security:authorize>
 			                	 
 			                    </div>
                             </form>
@@ -116,44 +138,46 @@
 	});
 
 </script>
-<script>
-window.addEventListener("load", function () {
-    var selButton = document.querySelector(".btn-list > ul > li:first-child");
-    var editButton = document.querySelector("#edit-button");
-    var delButton = document.querySelector("#del-button");
-    
-    selButton.onclick = function () {
-//     	if(editButton.className.show){
-    	editButton.classList.add("show");
-       	delButton.classList.add("show");
-    	}
-       	
-//     	else{
-//     	editButton.classList.remove("show");	
-//        	delButton.classList.remove("show");
-//        	}
-//     }
-});
-</script>
+
 <script>
 	$(function(){
 		var submitButton = $(".submit-button");
 			
 		submitButton.click(function(e){
 			e.preventDefault();
-							
-	 	 	$.getJSON("${id}/ajax-comment-list",function(comments){
-				
 	 	 	   var data = $(".comments-pan form").serialize();
-	 	 	   
+							
 	 	         $.post("${room.id}/comment/reg", data, function(result){
 	                 if(parseInt(result) == 1){
-	                	 alert('입력되었습니다.');
-	                	  $.getJSON("${note.id}/ajax-comment/list", function(comments){
+	                		//1. 기존의 목록을 지운다
+	          				var roomCommentUl = $(".comments-reply");								
+	          				roomCommentUl.empty();
+// 	                	 alert('입력되었습니다.');
+	                	  $.getJSON("${id}/ajax-comment-list", function(comments){
+	                		  for(var i = 0; i < comments.length; i++)
+			                   {
+	          			//2-1. 댓글 항목을 위한 View템플릿 사본을 준비
+	          				var template = document.querySelector("#note-comment-template");
+	          				var cloneLi = document.importNode(template.content,true);
+	          				
+	          			//2-2. view템플릿 사본에 데이터 채우기
+	          				var nickname = cloneLi.querySelector("#note-detail-nickname");
+	          				var regDate = cloneLi.querySelector("#note-detail-regDate");
+	          				var content = cloneLi.querySelector("#note-detail-content");
+	          			
+//	           				nickname.textContent = comments[i].nickname;
+// 	          				regDate.textContent = comments[i].regDate;
+	          				content.textContent = comments[i].content;
+	          				
+	          			//2-3. view를 docmument 노드에 추가
+	          				roomCommentUl.get(0).appendChild(cloneLi);
+
+			                   }
 	                      });
 	                } 
+// 	           		var textareaContent = $("textarea[name='content']");
+// 	           		textareaContent.textContent=""
 	             }); 
-		});
 	});
-	});
+});
 </script>

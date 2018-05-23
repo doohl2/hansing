@@ -11,6 +11,7 @@ import com.hansing.dao.hb.HbRoomCommentDao;
 import com.hansing.dao.hb.HbRoomDao;
 import com.hansing.entity.Room;
 import com.hansing.entity.RoomComment;
+import com.hansing.entity.RoomCommentView;
 import com.hansing.entity.RoomView;
 
 @Service
@@ -30,8 +31,8 @@ public class RoomService {
 	@Transactional
 	public RoomView getRoom(Integer id) {
 		RoomView room = roomDao.get(id);
-//		List<RoomComment> comments = roomCommentDao.getListByRoom(id);
-//		room.setComments(comments);
+		List<RoomCommentView> comments = roomCommentDao.getListByRoom(id);
+		room.setComments(comments);
 		return room;	
 	}
 	
@@ -48,9 +49,9 @@ public class RoomService {
 	}
 
 	@Transactional
-	public List<RoomComment> getRoomCommentByRoom(Integer roomId) {
-		List<RoomComment> result = roomCommentDao.getListByRoom(roomId);
-		for(RoomComment r : result)
+	public List<RoomCommentView> getRoomCommentByRoom(Integer roomId) {
+		List<RoomCommentView> result = roomCommentDao.getListByRoom(roomId);
+		for(RoomCommentView r : result)
 			r.setRoom(null);
 		return result;
 	}

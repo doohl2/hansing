@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.hansing.entity.Room;
 import com.hansing.entity.RoomComment;
+import com.hansing.entity.RoomCommentView;
 
 @Repository
 public class HbRoomCommentDao {
@@ -27,11 +28,11 @@ public class HbRoomCommentDao {
 		return result;
 	}
 	
-	public List<RoomComment> getListByRoom(Integer roomId) {
+	public List<RoomCommentView> getListByRoom(Integer roomId) {
 		Session session = sessionFactory.getCurrentSession();
-		Query<RoomComment> query = session.createQuery("from RoomComment where roomId=:roomId order by regDate desc",RoomComment.class)
+		Query<RoomCommentView> query = session.createQuery("from RoomCommentView where roomId=:roomId order by regDate desc",RoomCommentView.class)
 				.setParameter("roomId", roomId);
-		List<RoomComment> list = query.getResultList();
+		List<RoomCommentView> list = query.getResultList();
 		return list;
 	}
 

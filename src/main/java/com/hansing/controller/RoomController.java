@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 import com.hansing.entity.Room;
 import com.hansing.entity.RoomComment;
+import com.hansing.entity.RoomCommentView;
 import com.hansing.entity.RoomView;
 import com.hansing.service.RoomService;
 
@@ -52,7 +53,7 @@ public class RoomController {
 	@GetMapping("{id}/ajax-comment-list")
 	@ResponseBody
 	public String ajaxCommentList(@PathVariable("id") Integer roomId) {
-		List<RoomComment> comments = service.getRoomCommentByRoom(roomId);	
+		List<RoomCommentView> comments = service.getRoomCommentByRoom(roomId);	
 		return new Gson().toJson(comments);
 	}
 	
