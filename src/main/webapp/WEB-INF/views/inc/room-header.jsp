@@ -21,7 +21,7 @@
                 <div class="col-12 col-md-3">
                   <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
                 </div>
-              </div>
+              </div> 
             </form>
           </div>
         </div>
