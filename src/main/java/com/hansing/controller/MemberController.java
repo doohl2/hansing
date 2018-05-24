@@ -7,11 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
 import com.hansing.entity.Member;
 import com.hansing.service.MemberService;
 
 @Controller
 @RequestMapping("/member/")
+@SessionAttributes({"member"})
 public class MemberController {
 
 	@Autowired

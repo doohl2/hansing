@@ -52,6 +52,6 @@ public class CommunityController {
 			
 			) {
 		int result = service.insertCommunity(community);
-		return null;
+		return "redirect:index";
 	}
 }

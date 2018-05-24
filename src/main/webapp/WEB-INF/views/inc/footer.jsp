@@ -10,7 +10,7 @@
 	</h1>
 	<!-- logo -->
 	<!-- nav -->
-	<nav role="footer-nav">
+	<!-- <nav role="footer-nav">
 		<ul>
 			<li><a href="#" title="Work">Work</a></li>
 			<li><a href="#" title="About">About</a></li>
@@ -18,13 +18,13 @@
 			<li><a href="#" title="Contact">Contact</a></li>
 		</ul>
 	</nav>
-	<!-- nav -->
+	nav
 	<ul role="social-icons">
 		<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 		<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 		<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
 		<li><a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
-	</ul>
-	<p class="copy-right">&copy; 2018 hansing.. All Right Reserved.</p>
+	</ul> -->
+	<p class="copy-right" style="margin-top:50px;">&copy; 2018 hansing.. All Right Reserved.</p>
 </footer>
 <!-- footer -->

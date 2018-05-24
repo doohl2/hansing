@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
 
 <!-- ---------------------------------------------------------------------------------------- -->
@@ -27,7 +28,13 @@
 				
 				<li><a href="${ctx}/job/index" title="Job">구인구직</a></li>
 				
+				<sec:authorize access="!isAuthenticated()">
 				<li><a href="${ctx}/member/login" title="SignInUp">로그인/회원가입</a></li> 
+				</sec:authorize>
+				
+				<sec:authorize access="isAuthenticated()">
+				<li> <a href="${ctx}/member/logout" title="Logout">로그아웃 </a>
+				</sec:authorize>
 			</ul>
 		</nav>
 		<!-- nav -->

@@ -1,9 +1,11 @@
 package com.hansing.controller;
 
+
 import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,20 +52,21 @@ public class RoomController {
 		return "room.write";
 	}
 	
-	@GetMapping("{id}/ajax-comment-list")
+	@GetMapping(value="{id}/ajax-comment-list",produces="text/json; charset=UTF-8")
 	@ResponseBody
 	public String ajaxCommentList(@PathVariable("id") Integer roomId) {
 		List<RoomCommentView> comments = service.getRoomCommentByRoom(roomId);	
 		return new Gson().toJson(comments);
 	}
 	
-	@PostMapping("{id}/comment/reg")
+	@PostMapping(value="{id}/comment/reg",produces="text/json; charset=UTF-8")
 	@ResponseBody
 	public String commentReg(RoomComment comment
 			, @RequestParam(value="secret",defaultValue="false")  Boolean secret
 			, @PathVariable("id") Integer roomId
 			, Principal principal
 			) {
+		
 			String memberId = principal.getName();
 			comment.setRoomId(roomId);
 			comment.setMemberId(memberId);
