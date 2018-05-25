@@ -1,9 +1,12 @@
 package com.hansing.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +24,9 @@ public class MemberController {
 	private MemberService service;
 	
 	@GetMapping("login")
-	public String login() {
+	public String login(HttpServletRequest request, Model model) {
+		String referrer = request.getHeader("Referer");
+	    request.getSession().setAttribute("prevPage", referrer);
 		return "member.login";
 	}
 	

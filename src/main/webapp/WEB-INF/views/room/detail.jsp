@@ -6,6 +6,11 @@
 <link rel="stylesheet" href="${ctx}/resources/css/write.css">
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<style>
+a{font-weight:bold; color:lightslategray;}
+a:focus{color:dodgerblue;}
+@media (max-width: 1199px) and (min-width: 992px){.comments-reply li section{width:96%;}}
+</style>
 <main role="main-inner-wrapper" class="container padding-top-ninety">
             	<div class="blog-details">
                 	<article class="post-details" id="post-details">
@@ -22,7 +27,6 @@
                         	${room.content}
                         </p>
                         </div>
-                   
                 	</article>
                 	
                 	
@@ -54,11 +58,18 @@
 		                    <template id="note-comment-template">
 		                    	<li>
 		                          	<section>
+		                          	<span style="display: flex;">
 		                                <h4>
 		                                <span id="note-detail-nickname"> </span> 
 		                                <button class="btn btn-default btn-add" style="color:red">
+		                             
 		                                </button>
 		                                </h4>
+		                                <span style="display: flex; justify-content: flex-end; width:100%;">
+		                                  <a href="${room.id}/ajax-comment-edit" style="margin-right:15px;">수정 </a>
+		                                <input type="submit" class="del-button" value="삭제" style="background:none; font-weight:bold; color:lightslategray;" />
+		                                </span>
+		                                </span>
 		                                <div class="date-pan" id="note-detail-regDate"> </div>
 		                              	<span id="note-detail-content"> </span>
 		                            </section>
@@ -69,12 +80,18 @@
 	                         <c:forEach var="rc" items="${room.comments}">
 		                       	 <li>
 		                          	<section>
+		                          		<span style="display: flex;">		                          	
 		                                <h4>
 		                                <span id="note-detail-nickname">${rc.nickname} </span> 
 		                                <button class="btn btn-default btn-add" style="color:red">
 	<!-- 	                                답변 -->
 		                                </button>
 		                                </h4>
+		                                <span style="display: flex; justify-content: flex-end; width:100%;">
+		                                <a href="${room.id}/ajax-comment-edit" style="margin-right:15px;">수정 </a>
+		                                <input type="submit" class="del-button" value="삭제" style="background:none; font-weight:bold; color:lightslategray;" />
+		                                </span>
+		                                </span>
 		                                <div class="date-pan">${rc.regDate}</div>
 		                              	<span>${rc.content}</span>
 		                            </section>
@@ -127,14 +144,10 @@
  <script>
 	 $(function() {
 		 var addBtn = $(".btn-add");
-
-		 
 		 addBtn.click(function(){
 			 $("ol:first").toggle();
 		 });
-	
 	});
-
 </script>
 
 <script>
@@ -188,4 +201,10 @@
 	          }); 
 		});
 });
+</script>
+<script>
+	var delButton = $(".del-button");
+		delButton.click(function(e){
+			alert('d');
+		})
 </script>

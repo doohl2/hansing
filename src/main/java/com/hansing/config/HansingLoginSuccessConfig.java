@@ -41,6 +41,7 @@ public class HansingLoginSuccessConfig implements AuthenticationSuccessHandler{
 		
 		HttpSession session = request.getSession();
 		if (session != null) {
+			String redirectUrl = (String) session.getAttribute("prevPage");
 			SavedRequest savedRequest = (SavedRequest) session.getAttribute("SPRING_SECURITY_SAVED_REQUEST");
 			if (savedRequest != null) {
 				String returnUrl = savedRequest.getRedirectUrl();
@@ -50,14 +51,14 @@ public class HansingLoginSuccessConfig implements AuthenticationSuccessHandler{
 				String defaultRole= service.getDefaultRoleByMemberId(memberId);
 				switch(defaultRole) {
 					case "ROLE_ALL" : 
-						redirectStrategy.sendRedirect(request, response, "/index");
+						redirectStrategy.sendRedirect(request, response, redirectUrl);
 						break;
 					case "ROLE_ADMIN" :
 						redirectStrategy.sendRedirect(request, response, "/admin/index");
 						break;
 					default:
 						//에러페이지로 보낸다.
-						redirectStrategy.sendRedirect(request, response, "/index");
+						redirectStrategy.sendRedirect(request, response, "");
 						break;
 				}
 			}

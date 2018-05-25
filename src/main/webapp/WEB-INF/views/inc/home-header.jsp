@@ -33,7 +33,7 @@
 				</sec:authorize>
 				
 				<sec:authorize access="isAuthenticated()">
-				<li> <a href="${ctx}/member/logout" title="Logout">로그아웃 </a>
+				<li> <a href="${ctx}/logout" title="Logout">로그아웃 </a>
 				</sec:authorize>
 			</ul>
 		</nav>

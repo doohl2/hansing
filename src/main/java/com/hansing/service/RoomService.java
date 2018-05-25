@@ -47,7 +47,7 @@ public class RoomService {
 		int result = roomCommentDao.insert(comment);
 		return result;
 	}
-
+	
 	@Transactional
 	public List<RoomCommentView> getRoomCommentByRoom(Integer roomId) {
 		List<RoomCommentView> result = roomCommentDao.getListByRoom(roomId);
