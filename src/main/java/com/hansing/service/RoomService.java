@@ -49,11 +49,18 @@ public class RoomService {
 	}
 	
 	@Transactional
-	public List<RoomCommentView> getRoomCommentByRoom(Integer roomId) {
+	public List<RoomCommentView> getListRoomCommentByRoom(Integer roomId) {
 		List<RoomCommentView> result = roomCommentDao.getListByRoom(roomId);
 		for(RoomCommentView r : result)
 			r.setRoom(null);
 		return result;
+	}
+		
+	@Transactional
+	public int delComment(RoomComment comment) {
+		int result = roomCommentDao.del(comment);
+		return result;
+		
 	}
 	
 }

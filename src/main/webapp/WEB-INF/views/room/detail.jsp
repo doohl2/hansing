@@ -4,8 +4,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
 <link rel="stylesheet" href="${ctx}/resources/css/write.css">
+
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <style>
 a{font-weight:bold; color:lightslategray;}
 a:focus{color:dodgerblue;}
@@ -60,6 +62,7 @@ a:focus{color:dodgerblue;}
 		                          	<section>
 		                          	<span style="display: flex;">
 		                                <h4>
+		                                <span id ="note-comment-id" style="display: none;"></span>
 		                                <span id="note-detail-nickname"> </span> 
 		                                <button class="btn btn-default btn-add" style="color:red">
 		                             
@@ -82,6 +85,7 @@ a:focus{color:dodgerblue;}
 		                          	<section>
 		                          		<span style="display: flex;">		                          	
 		                                <h4>
+		                                <span id ="note-comment-id" style="display: none;" >${rc.id}</span>
 		                                <span id="note-detail-nickname">${rc.nickname} </span> 
 		                                <button class="btn btn-default btn-add" style="color:red">
 	<!-- 	                                답변 -->
@@ -141,6 +145,7 @@ a:focus{color:dodgerblue;}
 
         </main>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="${ctx}/resources/js/bootstrap.confirm.js"  type="text/javascript"></script>
  <script>
 	 $(function() {
 		 var addBtn = $(".btn-add");
@@ -204,7 +209,56 @@ a:focus{color:dodgerblue;}
 </script>
 <script>
 	var delButton = $(".del-button");
+	var roomCommentUl = $(".comments-reply");		
 		delButton.click(function(e){
-			alert('d');
-		})
+		e.preventDefault();
+		
+		var roomCommentId = $("#note-comment-id").text();
+	 	var data = $(".comments-pan form").serialize();
+	 	
+	 	var cf = confirm("삭제하시겠습니까?");
+	 		if(cf ==true ){
+			$.post("${room.id}/"+roomCommentId+"/comment/del", data, function(result){
+						 $.getJSON("${id}/ajax-comment-list", function(comments){               		  
+							   if(parseInt(result) == 0){
+			                		//1. 기존의 목록을 지운다
+			          			  $("#room-detail-textarea").val('');
+
+			          				var commentCountSpanText = $("#comment-count span").text();
+			                		var commentCountSpan = $("#comment-count span");
+			                		var commentCount = $("#comment-count");
+			                		var incCount = parseInt(commentCountSpanText);
+			                		commentCountSpan.empty();
+			          				incCount--;
+			          				commentCountSpan.append(incCount);     				
+			                	         
+			                	  $.getJSON("${id}/ajax-comment-list", function(comments){               		  
+			          				roomCommentUl.empty();
+
+			          				var template = document.querySelector("#note-comment-template");
+
+			                		  for(var i = 0; i < comments.length; i++){
+			                			  
+			          			//2-1. 댓글 항목을 위한 View템플릿 사본을 준비	          			
+		 							var cloneLi = document.importNode(template.content,true);
+			          		
+			          			//2-2. view템플릿 사본에 데이터 채우기
+			          				var nickname = cloneLi.querySelector("#note-detail-nickname");
+			          				var regDate = cloneLi.querySelector("#note-detail-regDate");
+			          				var content = cloneLi.querySelector("#note-detail-content");
+			          			
+			          				nickname.textContent = comments[i].nickname;
+			          				regDate.textContent = comments[i].regDate;
+			          				content.textContent = comments[i].content;
+			          				
+			          			//2-3. view를 docmument 노드에 추가
+			          				roomCommentUl.get(0).appendChild(cloneLi);
+					                   }
+			                     }); 
+			                } 
+						 });
+			}); 
+		}
+		});
+		
 </script>

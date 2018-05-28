@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.hansing.entity.Room;
 import com.hansing.entity.RoomComment;
 import com.hansing.entity.RoomCommentView;
+import com.hansing.entity.RoomView;
 
 @Repository
 public class HbRoomCommentDao {
@@ -35,5 +36,14 @@ public class HbRoomCommentDao {
 		List<RoomCommentView> list = query.getResultList();
 		return list;
 	}
+		
+	public int del(RoomComment comment) {
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(comment);
+		
+		return 0;
+	}
+	
+	
 
 }
