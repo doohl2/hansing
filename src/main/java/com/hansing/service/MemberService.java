@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hansing.dao.hb.HbMemberDao;
 import com.hansing.dao.hb.HbMemberRoleDao;
 import com.hansing.entity.Member;
+import com.hansing.entity.MemberRole;
 
 @Service
 public class MemberService {
@@ -28,5 +29,4 @@ public class MemberService {
 		String roleName = memberRoleDao.getDefaultRoleByMemberId(memberId);
 		return roleName;
 	}
-
 }

@@ -13,6 +13,7 @@ public class MemberRole {
 	private MemberRoleId memberRoleId;
 	@Column(insertable=false)
 	private Date regDate;
+	@Column(insertable=false)
 	private boolean defaultRole;
 	
 	public MemberRole() {

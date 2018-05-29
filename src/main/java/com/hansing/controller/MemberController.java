@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.hansing.entity.Member;
+import com.hansing.entity.MemberRole;
 import com.hansing.service.MemberService;
 
 @Controller

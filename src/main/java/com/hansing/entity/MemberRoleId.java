@@ -2,12 +2,14 @@ package com.hansing.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class MemberRoleId implements Serializable{
 	
 	private String memberId;
+	@Column(insertable=false)
 	private String roleId;
 	
 	public MemberRoleId() {
