@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,9 +40,16 @@ public class RoomController {
 	@GetMapping("{id}")
 	public String detail(
 			@PathVariable("id") Integer id
-			, Model model) {
-		RoomView room = service.getRoom(id);
-		model.addAttribute("room",room);
+			, Model model
+			, Principal principal) {
+			
+			RoomView room = service.getRoom(id);
+			
+			 String loginId = principal.getName();
+			  
+			  model.addAttribute("loginId", loginId);
+			  model.addAttribute("room",room);
+			
 		return "room.detail";
 	}
 	
@@ -55,6 +63,7 @@ public class RoomController {
 	@ResponseBody
 	public String ajaxCommentList(@PathVariable("id") Integer roomId) {
 		List<RoomCommentView> comments = service.getListRoomCommentByRoom(roomId);	
+
 		return new Gson().toJson(comments);
 	}
 	
@@ -65,7 +74,6 @@ public class RoomController {
 			, @PathVariable("id") Integer roomId
 			, Principal principal
 			) {
-		
 			String memberId = principal.getName();
 			comment.setRoomId(roomId);
 			comment.setMemberId(memberId);
@@ -73,17 +81,19 @@ public class RoomController {
 	
 		return String.valueOf(result);
 	}
-	
+		
 	@PostMapping(value="{id}/{roomCommentId}/comment/del",produces="text/json; charset=UTF-8")
 	@ResponseBody
 	public String CommentDel(RoomComment comment
 			, @PathVariable("id") Integer roomId
 			, @PathVariable(value="roomCommentId")  Integer roomCommentId
-			, Principal principal) {
+			, Principal principal
+			, Model model) {
 		String memberId = principal.getName();
+
 		comment.setRoomId(roomId);
-		comment.setMemberId(memberId);
 		comment.setId(roomCommentId);
+		comment.setMemberId(memberId);
 		
 		int result = service.delComment(comment);
 

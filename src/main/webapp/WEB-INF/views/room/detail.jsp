@@ -42,7 +42,7 @@ a:focus{color:dodgerblue;}
                 	</article>
                 	
                 	
-             	<!-- Comments -->
+             	<!-- Comments -->	
              	
              	<!-- 대댓글 예시 
              	<li>
@@ -66,8 +66,7 @@ a:focus{color:dodgerblue;}
              	
               	  <div class="comments-pan">
                 	<h3 id="comment-count"><span>${room.commentCount}</span>개의 댓글이 있습니다</h3>
-
-		                    <template id="note-comment-template">
+                        <template id="note-comment-template">
 		                    	<li>
 		                          	<section>
 		                          	<span style="display: flex;">
@@ -78,12 +77,12 @@ a:focus{color:dodgerblue;}
 		                                </button>
 		                                </h4>
 		                                
-		                                <span style="display: flex; justify-content: flex-end; width:100%;">
+		                               <span style="display: flex; justify-content: flex-end; width:100%;">
 		                                <a href="${room.id}/ajax-comment-edit" style="margin-right:15px;">수정 </a>
-		                                 <input type="submit" class="del-button" value="삭제" style="background:none; font-weight:bold; color:lightslategray;" />
+		                                 <input type="submit" class="correct-button" value="삭제" style="background:none; font-weight:bold; margin-bottom:13px; color:lightslategray;" onclick="correctLoginDel()" />
 		                                </span>
-
 		                              	 </span>
+		                              	 
 		                                <div class="date-pan" id="note-detail-regDate"> </div>
 		                              	<span id="note-detail-content"> </span>
 		                            </section>
@@ -97,17 +96,26 @@ a:focus{color:dodgerblue;}
 		                          		<span style="display: flex;">		                          	
 		                                <h4>
 		                                <span id ="note-comment-id" style="display: none;" >${rc.id}</span>
-		                                <span id="note-detail-nickname">${rc.nickname} </span> 
+		                                <span id="note-detail-nickname">${rc.nickname}</span> 
 		                                <button class="btn btn-default btn-add" style="color:red">
 	<!-- 	                                답변 -->
 		                                </button>
 		                                </h4>
 		                                
 		                                <security:authorize access="isAuthenticated()">
+		                                <c:if test="${loginId==rc.memberId}">
 		                                <span style="display: flex; justify-content: flex-end; width:100%;">
 		                                <a href="${room.id}/ajax-comment-edit" style="margin-right:15px;">수정 </a>
 		                                <input type="submit" class="del-button" value="삭제" style="background:none; font-weight:bold; color:lightslategray;" />
 		                                </span>
+		                                </c:if>
+		                                
+		                                <c:if test="${loginId!=rc.memberId}">
+		                                <span style="display: flex; justify-content: flex-end; width:100%;">
+		                                <a href="${room.id}/ajax-comment-edit" style="margin-right:15px;">수정 </a>
+		                                <input type="submit" class="correct-login" value="삭제" style="background:none; font-weight:bold; color:lightslategray; margin-bottom: 14px;" />
+		                                </span>
+		                                </c:if>
 		                                </security:authorize>
 		                               
 		                                <security:authorize access="!isAuthenticated()">
@@ -198,6 +206,7 @@ a:focus{color:dodgerblue;}
 	          				var commentCountSpanText = $("#comment-count span").text();
 	                		var commentCountSpan = $("#comment-count span");
 	                		var commentCount = $("#comment-count");
+	                	
 	                		var incCount = parseInt(commentCountSpanText);
 	                		commentCountSpan.empty();
 	          				incCount++;
@@ -217,10 +226,12 @@ a:focus{color:dodgerblue;}
 	          				var nickname = cloneLi.querySelector("#note-detail-nickname");
 	          				var regDate = cloneLi.querySelector("#note-detail-regDate");
 	          				var content = cloneLi.querySelector("#note-detail-content");
+	          				var id = cloneLi.querySelector("#note-comment-id");
 	          			
 	          				nickname.textContent = comments[i].nickname;
 	          				regDate.textContent = comments[i].regDate;
 	          				content.textContent = comments[i].content;
+	          				id.textContent = comments[i].id;
 	          				
 	          			//2-3. view를 docmument 노드에 추가
 	          				roomCommentUl.get(0).appendChild(cloneLi);
@@ -232,71 +243,69 @@ a:focus{color:dodgerblue;}
 });
 </script>
 <script>
-	
-	var delButton = $(".del-button");	
-	var roomCommentUl = $(".comments-reply");		
-  	var roomCommentId = $("#note-comment-id").text();
-	var data = $(".comments-pan form").serialize();
-	 	
-	delButton.confirm({
-		title:'삭제하시겠습니까?',
-		content:'',
- 	    theme: 'supervan', // 'material', 'bootstrap',
- 	    buttons: {
- 	        예: function () {
+var roomCommentId = $("#note-comment-id").text();
+var data = $(".comments-pan form").serialize();
+var delButton = $(".del-button");	
+var roomCommentUl = $(".comments-reply");	
+
+ 		function myFunction() { 			
+ 	 		var roomCommentId = $("#note-comment-id").text();
+ 		 	var data = $(".comments-pan form").serialize();
+ 		 	var cf = confirm("삭제하시겠습니까?");
+ 		 	
+ 		 		if(cf == true ){
  				$.post("${room.id}/"+roomCommentId+"/comment/del", data, function(result){
-					 $.getJSON("${id}/ajax-comment-list", function(comments){               		  
-						   if(parseInt(result) == 0){
-		                		//1. 기존의 목록을 지운다
-		          			  $("#room-detail-textarea").val('');
+ 							 $.getJSON("${id}/ajax-comment-list", function(comments){               		  
+ 								   if(parseInt(result) == 0){
+ 				                		//1. 기존의 목록을 지운다
+ 				          			  $("#room-detail-textarea").val('');
 
-		          				var commentCountSpanText = $("#comment-count span").text();
-		                		var commentCountSpan = $("#comment-count span");
-		                		var commentCount = $("#comment-count");
-		                		var incCount = parseInt(commentCountSpanText);
-		                		commentCountSpan.empty();
-		          				incCount--;
-		          				commentCountSpan.append(incCount);     				
-		                	         
-		                	  $.getJSON("${id}/ajax-comment-list", function(comments){               		  
-		          				roomCommentUl.empty();
+ 				          				var commentCountSpanText = $("#comment-count span").text();
+ 				                		var commentCountSpan = $("#comment-count span");
+ 				                		var commentCount = $("#comment-count");
+ 				                		var incCount = parseInt(commentCountSpanText);
+ 				                		commentCountSpan.empty();
+ 				          				incCount--;
+ 				          				commentCountSpan.append(incCount);     				
+ 				                	         
+ 				                	  $.getJSON("${id}/ajax-comment-list", function(comments){               		  
+ 				          				roomCommentUl.empty();
 
-		          				var template = document.querySelector("#note-comment-template");
+ 				          				var template = document.querySelector("#note-comment-template");
 
-		                		  for(var i = 0; i < comments.length; i++){
-		                			  
-		          			//2-1. 댓글 항목을 위한 View템플릿 사본을 준비	          			
-	 							var cloneLi = document.importNode(template.content,true);
-		          		
-		          			//2-2. view템플릿 사본에 데이터 채우기
-		          				var nickname = cloneLi.querySelector("#note-detail-nickname");
-		          				var regDate = cloneLi.querySelector("#note-detail-regDate");
-		          				var content = cloneLi.querySelector("#note-detail-content");
-		          			
-		          				nickname.textContent = comments[i].nickname;
-		          				regDate.textContent = comments[i].regDate;
-		          				content.textContent = comments[i].content;
-		          				
-		          			//2-3. view를 docmument 노드에 추가
-		          				roomCommentUl.get(0).appendChild(cloneLi);
-				                   }
-		                     }); 
-		                } 
-					 });
-		}); 
- 	        },
- 	        아니요: function () {
- 	        }
- 	   }
-	});	 	
-
+ 				                		  for(var i = 0; i < comments.length; i++){	
+ 				                			  
+ 				          			//2-1. 댓글 항목을 위한 View템플릿 사본을 준비	          			
+ 			 							var cloneLi = document.importNode(template.content,true);
+ 				          		
+ 				          			//2-2. view템플릿 사본에 데이터 채우기
+ 				          				var id = cloneLi.querySelector("#note-comment-id");
+ 		          						var nickname = cloneLi.querySelector("#note-detail-nickname");
+ 			          					var regDate = cloneLi.querySelector("#note-detail-regDate");
+ 			          					var content = cloneLi.querySelector("#note-detail-content");
+ 			          					
+ 			          			
+ 			          					id.textContent = comments[i].id;
+ 			          					nickname.textContent = comments[i].nickname;
+ 			          					regDate.textContent = comments[i].regDate;
+ 			          					content.textContent = comments[i].content;
+ 				          			//2-3. view를 docmument 노드에 추가
+ 				          				roomCommentUl.get(0).appendChild(cloneLi);
+ 						                   }
+ 				                     }); 
+ 				                } 
+ 							 });
+ 				}); 
+ 			} 
+ 			}
+ 		
+ 
+	delButton.click(function(){
 	
-	
-// 		delButton.click(function(e){
-// 		e.preventDefault();
-/* 		var roomCommentId = $("#note-comment-id").text();
+ 		var roomCommentId = $("#note-comment-id").text();
 	 	var data = $(".comments-pan form").serialize();
-	 	
+	 	var cf = confirm("삭제하시겠습니까?");
+	 	 	
 	 		if(cf == true ){
 			$.post("${room.id}/"+roomCommentId+"/comment/del", data, function(result){
 						 $.getJSON("${id}/ajax-comment-list", function(comments){               		  
@@ -323,14 +332,15 @@ a:focus{color:dodgerblue;}
 		 							var cloneLi = document.importNode(template.content,true);
 			          		
 			          			//2-2. view템플릿 사본에 데이터 채우기
-			          				var nickname = cloneLi.querySelector("#note-detail-nickname");
-			          				var regDate = cloneLi.querySelector("#note-detail-regDate");
-			          				var content = cloneLi.querySelector("#note-detail-content");
-			          			
-			          				nickname.textContent = comments[i].nickname;
-			          				regDate.textContent = comments[i].regDate;
-			          				content.textContent = comments[i].content;
-			          				
+			          				var id = cloneLi.querySelector("#note-comment-id");
+	          						var nickname = cloneLi.querySelector("#note-detail-nickname");
+		          					var regDate = cloneLi.querySelector("#note-detail-regDate");
+		          					var content = cloneLi.querySelector("#note-detail-content");
+		          			
+		          					id.textContent = comments[i].id;
+		          					nickname.textContent = comments[i].nickname;
+		          					regDate.textContent = comments[i].regDate;
+		          					content.textContent = comments[i].content;
 			          			//2-3. view를 docmument 노드에 추가
 			          				roomCommentUl.get(0).appendChild(cloneLi);
 					                   }
@@ -338,10 +348,11 @@ a:focus{color:dodgerblue;}
 			                } 
 						 });
 			}); 
-		} */
-// 		}); 
-		
+		} 
+	
+	});
 </script>
+
 <script>		
 	$(".after-login").confirm({
 	    title: '로그인 후 이용 가능합니다.',
@@ -356,4 +367,18 @@ a:focus{color:dodgerblue;}
 			}
 	    }
 });	
+	
+	$(".correct-login").confirm({
+	    title: '경고',
+	    content: '본인 댓글만 삭제할 수 있습니다',
+	    theme: 'Modern',
+	    buttons:{
+	    	확인:function(){
+	    	}
+	    }
+	    });
+	
+	function correctLoginDel(){
+		alert('d');
+	}
 </script>
