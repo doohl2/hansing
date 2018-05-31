@@ -19,14 +19,16 @@ public class MemberService {
 	private HbMemberRoleDao memberRoleDao;
 	
 	@Transactional
-	public int insertMember(Member member) {
+	public int insertMember(Member member, MemberRole memberRole) {
 			int result = memberDao.insert(member);
+							memberRoleDao.insert(memberRole);
 		return result;
 	}
-	
+
 	@Transactional
 	public String getDefaultRoleByMemberId(String memberId) {
 		String roleName = memberRoleDao.getDefaultRoleByMemberId(memberId);
 		return roleName;
 	}
+
 }

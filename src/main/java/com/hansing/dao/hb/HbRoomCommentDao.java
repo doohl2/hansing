@@ -43,6 +43,12 @@ public class HbRoomCommentDao {
 		
 		return 0;
 	}
+
+	public int edit(RoomComment comment) {
+		Session session = sessionFactory.getCurrentSession();
+		session.update(comment);
+		return 0;
+	}
 	
 	
 

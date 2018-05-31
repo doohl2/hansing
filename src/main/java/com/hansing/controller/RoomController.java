@@ -44,10 +44,10 @@ public class RoomController {
 			, Principal principal) {
 			
 			RoomView room = service.getRoom(id);
+			if(principal!=null) {
+			  model.addAttribute("loginId", principal.getName());
+			}
 			
-			 String loginId = principal.getName();
-			  
-			  model.addAttribute("loginId", loginId);
 			  model.addAttribute("room",room);
 			
 		return "room.detail";
@@ -100,21 +100,22 @@ public class RoomController {
 	return String.valueOf(result);
 	}
 	
-	/*	@GetMapping(value="{id}/ajax-comment-edit",produces="text/json; charset=UTF-8")
+	@PostMapping(value="{id}/{roomCommentId}/comment/edit",produces="text/json; charset=UTF-8")
 	@ResponseBody
-	public String ajaxCommentEdit(@PathVariable("id") Integer roomId
-			,Model model
-			,Principal principal) {
-		RoomCommentView comments = service.getListRoomCommentByRoom(roomId).get(1);
+	public String ajaxCommentEdit(RoomComment comment
+			, @PathVariable("id") Integer roomId
+			, @PathVariable(value="roomCommentId")  Integer roomCommentId
+			, Principal principal
+			, Model model) {
 		
 		String memberId = principal.getName();
-		String writerId = comments.getMemberId();
+
+		comment.setRoomId(roomId);
+		comment.setId(roomCommentId);
+		comment.setMemberId(memberId);
 		
-		if(memberId.equals(writerId))
-			model.addAttribute("auth", true);
-		else
-			model.addAttribute("auth", false);
+		int result = service.editComment(comment);
 		
-		return new Gson().toJson(comments);
-	}*/
+		return new Gson().toJson(result);
+	}
 }

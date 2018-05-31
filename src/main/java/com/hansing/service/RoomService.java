@@ -62,5 +62,10 @@ public class RoomService {
 		return result;
 		
 	}
+
+	public int editComment(RoomComment comment) {
+		int result = roomCommentDao.edit(comment);
+		return result;
+	}
 	
 }

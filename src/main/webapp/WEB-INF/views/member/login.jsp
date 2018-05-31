@@ -33,7 +33,6 @@
 				<p class="forgot">
 					<a href="#">비밀번호 찾기</a>
 				</p>
-<!-- 				<input type="submit" value="login"/> -->
 				<button type="submit" class="button button-block button-block-over" />
 				로그인
 				</button>
@@ -85,8 +84,8 @@
 
 <script	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="${ctx}/resources/js/index.js"></script>
-<!-- <script>
+<script>
 $(function(){
 	$(#login)
 });
-</script> -->
+</script>

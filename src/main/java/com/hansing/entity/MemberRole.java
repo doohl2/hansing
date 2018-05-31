@@ -11,6 +11,7 @@ public class MemberRole {
 
 	@EmbeddedId
 	private MemberRoleId memberRoleId;
+	
 	@Column(insertable=false)
 	private Date regDate;
 	@Column(insertable=false)
@@ -18,14 +19,8 @@ public class MemberRole {
 	
 	public MemberRole() {
 		// TODO Auto-generated constructor stub
-	}
-	
-	public MemberRole(String memberId, String roleId, Date regDate) {
-		this.memberRoleId.setMemberId(memberId);
-		this.memberRoleId.setRoleId(roleId);
-		this.regDate = regDate;
-	}
-	
+	}	
+
 	public MemberRole(String memberId, String roleId, Date regDate, boolean defaultRole) {
 		super();
 		this.memberRoleId.setMemberId(memberId);
@@ -51,15 +46,15 @@ public class MemberRole {
 	}
 
 	public void setMemberId(String memberId) {
-		this.memberRoleId.setMemberId(memberId);;
+			memberRoleId.setMemberId(memberId);
 	}
 
 	public String getRoleId() {
-		return 	this.memberRoleId.getRoleId();
+		return this.memberRoleId.getRoleId();
 	}
 
 	public void setRoleId(String roleId) {
-		this.memberRoleId.setRoleId(roleId);
+		memberRoleId.setRoleId(roleId);
 	}
 	
 	public void setRegDate(Date regDate) {

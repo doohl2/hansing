@@ -15,8 +15,8 @@ public class MemberRoleId implements Serializable{
 	public MemberRoleId() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public MemberRoleId(String memberId, String roleId) {
+	
+	public MemberRoleId(String memberId,String roleId) {
 		super();
 		this.memberId = memberId;
 		this.roleId = roleId;
