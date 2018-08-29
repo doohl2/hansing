@@ -11,16 +11,16 @@
 <style>
 a{font-weight:bold; color:lightslategray;}
 a:focus{color:dodgerblue;}
-.del-button{margin-bottom:14px;}
+.del-button{margin-bottom:0px;}
 @media (max-width: 1199px) and (min-width: 992px){
 .comments-reply li section{width:96%;}
-.del-button{margin-bottom:2px;}
+.del-button{margin-bottom:0px;}
 }
 @media (min-width: 768px) and (max-width: 991px) {
 .del-button{margin-bottom:0px;}
 }
 @media (max-width: 767px) {
-.del-button{margin-bottom:6px;}
+.del-button{margin-bottom:0px;}
 }
 
 .correct-login{margin-bottom:14px;}
@@ -34,6 +34,7 @@ a:focus{color:dodgerblue;}
 @media (max-width: 767px) {
 .correct-login{margin-bottom:6px;}
 }
+
 
 </style>
 <main role="main-inner-wrapper" class="container padding-top-ninety">
@@ -89,8 +90,8 @@ a:focus{color:dodgerblue;}
 		                                </button>
 		                                </h4>
 		                                <span id="note-comment-memberId" style="display:none;"></span>
-		                               <span style="display: flex; justify-content: flex-end; width:100%;">
-		                                <input type="submit" class="correct-button" value="수정" style="background:none; font-weight:bold; color:lightslategray; margin-right:15px; margin-bottom:15px" /> 
+		                               <span id="correct-del-area" style="display: flex; justify-content: flex-end; width:100%;">
+		                                 <input type="submit" class="correct-button" value="수정" style="background:none; font-weight:bold; color:lightslategray; margin-right:15px; margin-bottom:15px" /> 
 		                                 <input id="template-del" type="submit" class="correct-button" value="삭제" style="background:none; font-weight:bold; margin-bottom:13px; color:lightslategray;"/>
 		                                </span>
 		                              	 </span>
@@ -245,7 +246,8 @@ a:focus{color:dodgerblue;}
 	          				var id = cloneLi.querySelector("#note-comment-id");
 	          				var memberId = cloneLi.querySelector("#note-comment-memberId"); 
 	          				var templateDel = cloneLi.querySelector("#template-del");
-	          			
+	          				var correctDelArea = cloneLi.querySelector("#correct-del-area");
+	          				
 	          				nickname.textContent = comments[i].nickname;
 	          				regDate.textContent = comments[i].regDate;
 	          				content.textContent = comments[i].content;
@@ -253,6 +255,10 @@ a:focus{color:dodgerblue;}
 	          				memberId.textContent = comments[i].memberId;
 	          				
 	          				var loginId = '${loginId}';
+	          				
+	          				if(loginId==memberId.textContent)
+	          					correctDelArea.addEventListener("load", initialiseTable, false);
+	          				
 	          				
           					if(loginId==memberId.textContent)
           					templateDel.addEventListener("click", myFunction);
@@ -271,13 +277,14 @@ a:focus{color:dodgerblue;}
 var roomCommentId = $("#note-comment-id").text();
 var data = $(".comments-pan form").serialize();
 var delButton = $(".del-button");	
-var roomCommentUl = $(".comments-reply");	
+var roomCommentUl = $(".comments-reply");		
 
  		function myFunction() { 			
  	 		var roomCommentId = $("#note-comment-id").text();
  		 	var data = $(".comments-pan form").serialize();
  		 	var cf = confirm("삭제하시겠습니까?");
- 		 	
+ 		 	var correctDelArea = $("#correct-del-area");
+ 		 	 		 	
  		 		if(cf == true ){
  				$.post("${room.id}/"+roomCommentId+"/comment/del", data, function(result){
  							 $.getJSON("${id}/ajax-comment-list", function(comments){               		  
@@ -310,7 +317,8 @@ var roomCommentUl = $(".comments-reply");
  			          					var content = cloneLi.querySelector("#note-detail-content");
  			          					var memberId = cloneLi.querySelector("#note-comment-memberId"); 
  			          					var templateDel = cloneLi.querySelector("#template-del");
- 			          					
+ 			          					var correctDelArea = cloneLi.querySelector("#correct-del-area");
+ 			          					          					
  			          					id.textContent = comments[i].id;
  			          					nickname.textContent = comments[i].nickname;
  			          					regDate.textContent = comments[i].regDate;
@@ -319,6 +327,9 @@ var roomCommentUl = $(".comments-reply");
  			          					
  			          					var loginId = '${loginId}';
  				          			
+ 			          					if(loginId==memberId.textContent)
+ 				          					correctDelArea.addEventListener("load", initialiseTable, false);
+ 				          				 			          						
  			          					if(loginId==memberId.textContent)
  			          					templateDel.addEventListener("click", myFunction);
  			          					if(loginId!=memberId.textContent)
@@ -335,7 +346,7 @@ var roomCommentUl = $(".comments-reply");
  		
  
 	delButton.click(function(){
-	
+		var correctDelArea = $("#correct-del-area");
  		var roomCommentId = $("#note-comment-id").text();
 	 	var data = $(".comments-pan form").serialize();
 	 	var cf = confirm("삭제하시겠습니까?");
@@ -372,7 +383,8 @@ var roomCommentUl = $(".comments-reply");
 		          					var content = cloneLi.querySelector("#note-detail-content");
 		          					var memberId = cloneLi.querySelector("#note-comment-memberId"); 
 		          					var templateDel = cloneLi.querySelector("#template-del");
-			          				
+		          					var correctDelArea = cloneLi.querySelector("#correct-del-area");
+		          					
 		          					id.textContent = comments[i].id;
 		          					nickname.textContent = comments[i].nickname;
 		          					regDate.textContent = comments[i].regDate;
@@ -380,6 +392,9 @@ var roomCommentUl = $(".comments-reply");
 		          					memberId.textContent = comments[i].memberId;
 		          					
 			          				var loginId = '${loginId}';
+			          				
+			          				if(loginId==memberId.textContent)
+			          					correctDelArea.addEventListener("load", initialiseTable, false);
 			          				
 		          					if(loginId==memberId.textContent)
 		          					templateDel.addEventListener("click", myFunction);
@@ -557,4 +572,12 @@ var roomCommentUl = $(".comments-reply");
 	function myCommentEditOnly(){
 		alert('본인 글만 수정할 수 있습니다.');
 	}
+	
+	function initialiseTable() {
+		    alert('d');
+		    };
+		
+</script>
+<script>
+
 </script>
